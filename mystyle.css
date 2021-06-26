@@ -1,0 +1,145 @@
+/* prevents the navbar from covering content */
+body { 
+    height: 100%;
+}
+
+html{
+    height: 100%; 
+}
+
+p{
+    font-size: 1.15em; 
+}
+
+/* navigation */
+nav {
+    font-weight:600;
+    font-size:1.25em;
+    background-color: rgba(255,255,255, 0.9); 
+}
+
+.nav li{
+   padding-right:5px;
+}
+
+/* Landing Page */
+.intro-header {  
+    text-align: center;
+    color: #f8f8f8;
+    background: url(images/cover-photo.jpg) no-repeat center center;
+    background-size: cover;
+    min-height: 150%;  
+}
+
+.intro-message {
+    position: relative;
+    padding-top: 10%;
+    padding-bottom: 20%;
+}
+
+.bio-pic {
+    padding-bottom: 12px;
+}
+
+.img-top {
+    height: 100%;
+    max-height: 200px;
+    border-radius: 100%;
+    border: 5px solid #e7e7e7;
+}
+
+.intro-message h1 {
+    margin: 0;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+    font-size: 5em;
+  }
+  
+  .btn-secondary {
+    background-color: rgba(255, 255, 255, 0.7)!important;
+    color: black!important;
+    border: none!important;
+    box-shadow: none!important;
+  }
+  
+  .btn-secondary:hover {
+    background-color: white!important;
+    color: black!important;
+    box-shadow: none!important;
+  }
+
+  .btn-secondary:active {
+    background-color: rgba(255, 255, 255, 0.7)!important;
+    color: black!important;
+    border: none!important;
+    box-shadow: none!important;
+  }
+
+  /* .btn-secondary:focus{
+    background-color: rgba(255, 255, 255, 0.7)!important;
+    color: black!important;
+    border: none!important;
+    box-shadow: none!important;
+  } */
+
+
+  .network-name {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 2px;
+  }
+
+  .list-inline-item {
+    padding-top:40px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+
+.main-title {
+    /* border: solid black 1px; */
+    width: 78%;
+    margin: auto; 
+    padding-top: 4%;
+}
+
+
+.col-12{
+    padding-top: 2%;
+    padding-bottom: 1%;
+}
+
+.col-md-6 img {
+    max-width: 100%;
+    /* border: solid #E9ECEF 2px;  */
+}
+
+.mysection{
+    width: 78%;
+    margin: auto;
+    padding-bottom: 10%;
+}
+
+.row {
+    /* border: solid blue 1px; */
+    width: 100%;
+    margin: auto;
+}
+
+/* needs to be placed in a .col 12 */
+.bottom-border-line{
+    border-bottom: solid #CED4DA 1.5px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    color: #f8f8f8;
+    background: url(images/footer.jpg) no-repeat center center;
+    background-size: cover;
+    min-height: 80%; 
+}
+
+ul {
+    padding: 0;
+}
