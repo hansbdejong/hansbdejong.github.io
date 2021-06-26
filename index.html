@@ -1,122 +1,688 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>Hans DeJong, PhD</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-        <link href="css/style.css" rel = "stylesheet">
+    <title>Hans DeJong, PhD</title>
 
-        <!-- Font Is Awesome for footer logos -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-    
-    </head>
+    <link href="mystyle.css" rel="stylesheet">
 
-    <body>
+    <!-- Font Is Awesome for footer logos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        <!-- Navigation Bar -->
-        <nav class="navbar navbar-dark bg-dark navbar-expand-md fixed-top">
-            <a href="#" class="navbar-brand">HANS DEJONG, PhD</a> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
-            <!-- Button in navbar with collapse -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" 
-                data-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+</head>
 
-            <!-- NavBar -->
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav">
-                    <li class="navbar-item">
-                        <a href="about.html" class="nav-link">ABOUT</a> 
-                    </li>
+<body data-spy="scroll" data-target = ".navbar" data-offset = "40">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-md navbar-light fixed-top">
+        <!-- Button in navbar with collapse -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                    <li class="navbar-item">
-                        <a href="research.html" class="nav-link">RESEARCH</a> 
-                    </li>
+        <!-- NavBar -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto mr-auto">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">
+                        <i class="fa fa-home fa-fw"></i>
+                    </a>
+                </li>
 
-                    <li class="navbar-item">
-                        <a href="projects.html" class="nav-link">PROJECTS</a> 
-                    </li>
+                <li class="navbar-item">
+                    <a href="#about" class="nav-link">ABOUT</a>
+                </li>
 
-                    <li class="navbar-item">
-                        <a href="adventures.html" class="nav-link">ADVENTURES</a> 
-                    </li>
+                <li class="navbar-item">
+                    <a href="#research" class="nav-link">RESEARCH</a>
+                </li>
 
-                    <li class = "navbar-item">
-                        <a href="Hans_DeJong_Resume.pdf" target="_blank" class="nav-link">RESUME</a> 
-                    </li>
+                <li class="navbar-item">
+                    <a href="#projects" class="nav-link">PROJECTS</a>
+                </li>
 
-                </ul>
+                <li class="navbar-item">
+                    <a href="#adventures" class="nav-link">ADVENTURES</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <!--close navbar-->
+
+
+    <!-- Header -->
+    <!-- background -->
+    <header id="home" class="intro-header">
+        <!-- holds profile picture and github, linkedIn etc. logos -->
+        <div class="intro-message">
+            <div class="bio-pic">
+                <img class="img-top" src="images/Hans.jpg" alt="">
             </div>
-        </nav> <!--close navbar-->
+            <h1>Hans DeJong, PhD</h1>
+            <ul>
+                <li class="list-inline-item">
+                    <a href="Hans_DeJong_Resume.pdf" target="_blank" class="btn btn-secondary btn-lg">
+                        <i class="fa fa-file-o fa-fw"></i>
+                        <span class="network-name">Resume</span>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="https://github.com/hansbdejong" target="_blank" class="btn btn-secondary btn-lg">
+                        <i class="fa fa-github fa-fw"></i>
+                        <span class="network-name">Github</span>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="https://www.linkedin.com/in/hansbdejong/" target="_blank" class="btn btn-secondary btn-lg">
+                        <i class="fa fa-linkedin fa-fw"></i>
+                        <span class="network-name">LinkedIn</span>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a href="https://scholar.google.com/citations?user=7KRThrQAAAAJ&hl=en" target="_blank"
+                        class="btn btn-secondary btn-lg">
+                        <i class="ai ai-google-scholar"></i>
+                        <span class="network-name"> Google Scholar</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
 
-        <!-- Coral reef Image -->
-        
-  
-        
-        <div style="background-image: url('images/index/Cover_Photo.jpg');  
-            height: 100%; 
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;">
+
+    <!-- https://coolors.co/f8f9fa-e9ecef-dee2e6-ced4da-adb5bd-6c757d-495057-343a40-212529 -->
+
+    <!-- ############################################################################################################ -->
+    <!--ABOUT ME -->
+    <div id="about" style="background-color: #E9ECEF; border-bottom: 2px solid#CED4DA;">
+        <div class="main-title">
+            <div class="col-12">
+                <h1>About Me</h1>
+            </div>
+        </div>
+
+        <!-- Keeps everything aligned with 78% -->
+        <div class="mysection">
+
+            <div class="col-md-12" style="padding-bottom: 5%;">
+
+
+                <p>
+                    I am a Computer Science master’s student at the <b>University of Pennsylvania</b> 
+                    pivoting into tech.
+                </p>
+
+                <p>
+                    I completed a PhD at <b>Stanford University</b> in Oceanography as a National Science Foundation Graduate Research
+                    Fellow. Using field, modeling, and remote sensing techniques, I led projects studying the
+                    impacts of climate change in the Ross Sea, Antarctica. I also designed and built
+                    autonomous instruments for ocean acidification research on coral reefs.
+                </p>
+
+                <p>
+                    I am an experienced educator and recently taught Computer Science to high school
+                    students at the American International School Chennai in India. Collaborating with a
+                    Stanford professor, my Computer Science course was based on CS 106A, taken by over
+                    1000 students at Stanford each year.
+                </p>
+
+                <p>
+                    On the personal front, I was born in the US and grew up in India and Madagascar. I have also lived in
+                    Mali and South Korea. I love to go backpacking and play soccer. 
+                </p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="images/about-diving.jpg" alt="Hans diving">
+                </div>
+
+                <div class="col-md-6">
+                    <img src="images/about-penguins.jpg" alt="penguins">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ############################################################################################################
+RESEARCH PROJECTS -->
+
+
+    <div id="research" style = "background-color:#f8f9fa;">
+        <div class="main-title">
+            <div class="col-12">
+                <h1>Research Projects</h1>
+            </div>
+        </div>
+
+
+
+        <div class="mysection">
             
-            <div class="d-flex flex-row">
-                <div class="headline">Stanford trained scientist pivoting into tech
+            <div class="col-md-12">
+                <p>I conducted my PhD research in the Ross Sea, a stretch of ocean off the coast of
+                    Antarctica that is south of New Zealand. The Ross Sea is the most biologically productive
+                    region in the Southern Ocean and is a large atmospheric carbon dioxide sink.</p>
+            </div>
+
+            <!-- First Project -->
+            <div class="col-12">
+                <h2>Ocean Acidification</h2>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="images/ocean-acidifiation.jpg" alt="autopump">
+                </div>
+
+                <div class="col-md-6">
+                    <p>The world’s oceans are becoming more acidic as the oceans absorb anthropogenic
+                        atmospheric CO<sub>2</sub>. This acidic water can become
+                        corrosive to biogenic carbonate minerals, the building blocks for the skeletons
+                        and shells of many marine organisms. In order to predict when the Ross Sea may
+                        become corrosive to biogenic carbonate minerals, high resolution baseline
+                        carbon system data is required. This project involved measuring the total alkalinity of
+                        thousands
+                        of surface water samples in the Ross Sea. Our results suggest that surface waters in
+                        the Ross Sea will not become corrosive to biogenic carbonate minerals until the year 2070.
+                    </p>
+                    <p>
+                        <a class="btn btn-primary" href="https://bg.copernicus.org/articles/12/6881/2015/"
+                            role="button" target="_blank">Publication</a>
+
+                        <a class="btn btn-primary"
+                            href="https://github.com/hansbdejong/Ocean-acidification-state-publication-repository"
+                            role="button" target="_blank">Code</a>
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="col-12">
+                <div class="bottom-border-line"> </div>
+            </div>
+
+
+            <!-- Second Project -->
+
+            <div class="col-12">
+                <h2>Late Summer Net Community Production</h2>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="images/ncp.jpg" alt="autopump">
+                </div>
+
+                <div class="col-md-6">
+                    <p>The largest phytoplankton bloom in Antarctica occurs in the Ross Sea during the
+                        austral summer. This phytoplankton bloom senesces during the late summer before
+                        the formation of sea ice. Using carbon budgets, we find evidence for substantial
+                        late summer algal productivity in a windy coastal environment. This is the first
+                        study to document substantial late season productivity in Antarctic shelf waters,
+                        which is associated with green frazil ice from algal accumulation. We
+                        hypothesize that the strong coastal winds facilitate late season productivity
+                        by preventing the formation of sea ice and providing growth limiting
+                        micronutrients such as iron.
+                    </p>
+                    <p>
+                        <a class="btn btn-primary"
+                            href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016GB005417" role="button"
+                            target="_blank">Publication</a>
+
+                        <a class="btn btn-primary"
+                            href="https://github.com/hansbdejong/Net-community-production-publication-repository"
+                            role="button" target="_blank">Code</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="bottom-border-line"> </div>
+            </div>
+
+
+
+            <!-- Third Project -->
+
+            <div class="col-12">
+                <h2>Air-Sea CO<sub>2</sub> Gas Exchange</h2>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="images/air-sea-flux.jpg" alt="autopump">
+                </div>
+
+                <div class="col-md-6">
+                    <p>The Ross Sea is a large atmospheric CO<sub>2</sub> sink. During the winter, even though surface waters
+                        are supersaturated in CO<sub>2</sub>, sea ice acts as a barrier to air-sea gas exchange
+                        and prevents significant CO<sub>2</sub> outgassing. Once the sea ice melts in the spring,
+                        an intense phytoplankton bloom develops and through photosynthesis causes the
+                        surface waters to become undersaturated in CO<sub>2</sub>. This air-sea CO<sub>2</sub> gradient,
+                        along
+                        with winds, drives the flux of CO<sub>2</sub> from the atmosphere into the ocean. In order to
+                        estimate the magnitude of the annual Ross Sea CO<sub>2</sub> sink, we model CO<sub>2</sub> flux
+                        rates
+                        using historical pCO<sub>2</sub> and wind speed data from 20 cruises to the Ross Sea.
+                    </p>
+                    <p>
+                        <a class="btn btn-primary"
+                            href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JC012853" role="button"
+                            target="_blank">Publication</a>
+
+                        <a class="btn btn-primary"
+                            href="https://github.com/hansbdejong/Air-sea-CO2-exchange-publication-repository"
+                            role="button" target="_blank">Code</a>
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="col-12">
+                <div class="bottom-border-line"> </div>
+            </div>
+
+
+            <!-- Fourth Project -->
+
+            <div class="col-12">
+                <h2>Green Frazil Ice</h2>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="images/frazil-ice.jpg" alt="autopump">
+                </div>
+
+                <div class="col-md-6">
+                    <p>Late summer phytoplankton productivity in the Ross Sea is associated with
+                        green frazil ice. We analyze daily 500-m resolution satellite imagery for
+                        February and March from 2003 to 2017 to identify green frazil ice hot spots 
+                        around Antarctica. While
+                        there is substantial interannual variability, green frazil ice is present
+                        over greater than 300,000 km<sup>2</sup> during March. Our study indicates that late
+                        summer frazil ice-associated algal productivity may be a major phenomenon
+                        around Antarctica that is not considered in regional carbon and ecosystem models.
+                    </p>
+                    <p>
+                        <a class="btn btn-primary"
+                            href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017GL075472" role="button"
+                            target="_blank">Publication</a>
+
+                        <a class="btn btn-primary"
+                            href="https://github.com/hansbdejong/Green-frazil-ice-publication-repository" role="button"
+                            target="_blank">Code</a>
+                    </p>
+                </div>
+            </div>
+        </div> <!-- end mysection -->
+    </div> <!-- padding on the bottom, control color -->
+
+    <!-- ############################################################################################################
+PROJECTS -->
+
+    <div id= "projects" style="background-color: #E9ECEF; border-bottom: 2px solid#CED4DA; border-top: 2px solid#CED4DA;">
+        <!--Main title -->
+        <div class="main-title">
+            <div class="col-12">
+                <h1>Projects</h1>
+            </div>
+        </div>
+
+        <!-- First Project -->
+
+        <div class="mysection">
+
+
+            <div class="col-12">
+                <h2>Autonomous Water Sampler</h2>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="images/sampler.jpg" alt="autopump">
+                </div>
+
+                <div class="col-md-6">
+                    <p>We studied the impact of climate change on coral reefs in the Chagos
+                        Archipelago as part of the Bertarelli Program in Marine Science. To monitor coral reef health,
+                        we needed to collect water samples above the reef every two hours for days at a time.
+                        Rather than stay up all night on rafts, we obtained a grant to design and build a
+                        submersible autonomous water sampler. I collaborated with our research engineer on the
+                        hardware components and programmed the microcontroller.
+                    </p>
+                    <p>
+                        <a class="btn btn-primary"
+                            href="https://www.sciencedirect.com/science/article/pii/S2468067221000262#s0055"
+                            role="button" target="_blank">Publication</a>
+
+                        <a class="btn btn-primary"
+                            href="https://github.com/hansbdejong/AutoSampler-publication-repository" role="button"
+                            target="_blank">Code</a>
+                    </p>
+
+                </div>
+            </div>
+
+
+
+            <div class="col-12">
+                <div class="bottom-border-line"> </div>
+            </div>
+
+
+
+            <!-- Second Project -->
+
+            <div class="col-12">
+                <h2>Autonomous Pumping System</h2>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="images/autopump.jpg" alt="autopump">
+                </div>
+
+                <div class="col-md-6">
+                    <p>
+                        Measurements of net community production and net community calcification
+                        are used as important indicators of coral reef health. A novel approach is
+                        to measure pH and oxygen concentrations at two depths above the reef. To ensure
+                        that these measurements are extremely precise, we use a single pH and oxygen sensor.
+                        We designed and built an autonomous submersible pumping system that alternately pumps
+                        water from each depth for a specified amount of time through the pH and oxygen sensor.
+                        I collaborated with our research engineer on the hardware components and
+                        programmed the microcontroller.
+                    </p>
+                    <p>
+                        <a class="btn btn-primary"
+                            href="https://www.sciencedirect.com/science/article/pii/S2468067220300638" role="button"
+                            target="_blank">Publication</a>
+
+                        <a class="btn btn-primary"
+                            href="https://github.com/hansbdejong/AutoPump-publication-repository" role="button"
+                            target="_blank">Code</a>
+                    </p>
                 </div>
             </div>
 
 
 
 
+            <div class="col-12">
+                <div class="bottom-border-line"> </div>
+            </div>
 
-            <!-- <div class="headline">
-                Stanford trained scientist pivoting into tech
-            </div> -->
-            
 
+
+            <!-- Third Project -->
+
+            <div class="col-12">
+                <h2>Inquiry-Based Interactive: Primate Evolution (in progress)</h2>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="images/primates.jpg" alt="Primates">
+                </div>
+
+                <div class="col-md-6">
+                    <p> I designed an inquiry-based classroom resource where students build their own evolutionary
+                        trees using <a href="https://www.ebi.ac.uk/Tools/msa/clustalo/" target="_blank">Crustal
+                            Omega</a>, a
+                        professional sequence alignment software. After scouring the
+                        scientific literature, I found a dataset from the publication “A Molecular Phylogeny of
+                        Living Primates” (<a
+                            href="https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1001342"
+                            target="_blank">Perelman et al., 2011</a>) that includes the genetic sequences of 58 genes
+                        from 168 primate species. Rather than having students manually search for each gene sequence
+                        in the <a href="https://www.ncbi.nlm.nih.gov" target="_blank">National Center for Biotechnology
+                            Information</a> database, I am building a web
+                        tool where students can quickly and easily find formatted gene sequences for primate species
+                        of their choice. 
+                    </p>
+
+                </div>
+            </div>
+
+
+
+
+            <div class="col-12">
+                <div class="bottom-border-line"> </div>
+            </div>
+
+
+            <!-- Fourth Project -->
+
+            <div class="col-12">
+                <h2>Data Explorer: Our Breathing Planet (in progress)</h2>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="images/blue-marble.jpg" alt="Blue Marble">
+                </div>
+
+                <div class="col-md-6">
+                    <p>I conceptualized and created a virtual classroom resource where students explore peer-reviewed
+                        datasets to deepen their understanding of the global carbon cycle on timescales ranging from
+                        days
+                        (coral reef metabolism) to years (atmospheric and oceanic CO<sub>2</sub> cycles) to hundreds of
+                        thousands
+                        of years (CO<sub>2</sub> trapped in ice cores). I built these interactive data visualizations
+                        using
+                        dygraphs,
+                        D3, and leaflet.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ############################################################################################################
+ADVENTURES -->
+
+    <div id = "adventures" style="background-color: #f8f9fa;">
+        
+        <div class="main-title">
+            <div class="col-12">
+                <h1>Adventures</h1>
+            </div>
         </div>
 
 
+        <div class="mysection">
+            <!-- First Project -->
+
+            <div class="col-12">
+                <h2>Ross Sea, Antarctica</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/S-ckue2LTs0"></iframe>
+                    </div>
+                </div>
 
 
-         <!-- Footer -->
-         <footer>
-            <ul class="banner-social-buttons">
+                <div class="col-md-6">
+                    <p>I have been on two research cruises (54 days in 2013, 78 days in 2018)
+                        to the Ross Sea, Antarctica. The Ross Sea is considered to
+                        be the most pristine marine ecosystem on Earth and is one of the
+                        most species-rich areas of the Southern Ocean.
+                    </p>
+                </div>
 
-                <li class="list-inline-item">
-                  <a href="https://scholar.google.com/citations?user=7KRThrQAAAAJ&hl=en" target="_blank" class="btn btn-dark btn-lg">
-                      <i class="ai ai-google-scholar"></i>
-                      <span class="network-name"> Google Scholar</span>
-                    </a>
-                </li>
+            </div>
 
-                <li class="list-inline-item">
-                  <a href="https://github.com/hansbdejong" target="_blank" class="btn btn-dark btn-lg">
-                      <i class="fa fa-github fa-fw"></i>
-                      <span class="network-name">Github</span>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                  <a href="https://www.linkedin.com/in/hansbdejong/" target="_blank" class="btn btn-dark btn-lg">
-                      <i class="fa fa-linkedin fa-fw"></i>
-                      <span class="network-name">LinkedIn</span>
-                    </a>
-                </li>
-            </ul>
-        </footer>
 
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    </body>
+
+            <div class="col-12">
+                <div class="bottom-border-line"> </div>
+            </div>
+
+
+
+            <!-- Second Adventure -->
+
+            <div class="col-12">
+                <h2>Chagos Archipelago, Indian Ocean</h2>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ixlr6pkU9zY"></iframe>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <p>I have been on two research cruises (16 days in 2016, 20 days in 2018) to the
+                        Chagos Archipelago,
+                        located in the middle of the Indian Ocean. The archipelago
+                        consists of 55 tiny islands spread across 640,000 km<sup>2</sup> of ocean.
+
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="col-12">
+                <div class="bottom-border-line"> </div>
+            </div>
+
+
+            <!-- Third Trip -->
+
+            <div class="col-12">
+                <h2>Diving Sudan</h2>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/4c_8_AaNE9k"></iframe>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <p>Sudan has the best diving in the Red Sea. Hammerhead sharks are seen
+                        on 40% of dives, including in large schools. They are found at
+                        50 meters depth at the edge of plateaus where the current splits
+                        into two, providing cooler oxygenated water.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="col-12">
+                <div class="bottom-border-line"> </div>
+            </div>
+
+
+
+            <!-- Fourth Trip -->
+
+            <div class="col-12">
+                <h2>Diving Raja Ampat, Indonesia</h2>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/qmfHp1EuiEE"></iframe>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <p>Raja Ampat’s biodiversity is legendary, with more than 1700
+                        species of fish and 600 species of hard coral (75% of the
+                        world's coral species).
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer id="test">
+        <ul>
+            <li class="list-inline-item">
+                <a href="Hans_DeJong_Resume.pdf" target="_blank" class="btn btn-secondary btn-lg">
+                    <i class="fa fa-file-o fa-fw"></i>
+                    <span class="network-name">Resume</span>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="https://github.com/hansbdejong" target="_blank" class="btn btn-secondary btn-lg">
+                    <i class="fa fa-github fa-fw"></i>
+                    <span class="network-name">Github</span>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="https://www.linkedin.com/in/hansbdejong/" target="_blank" class="btn btn-secondary btn-lg">
+                    <i class="fa fa-linkedin fa-fw"></i>
+                    <span class="network-name">LinkedIn</span>
+                </a>
+            </li>
+            <li class="list-inline-item">
+                <a href="https://scholar.google.com/citations?user=7KRThrQAAAAJ&hl=en" target="_blank"
+                    class="btn btn-secondary btn-lg">
+                    <i class="ai ai-google-scholar"></i>
+                    <span class="network-name"> Google Scholar</span>
+                </a>
+            </li>
+        </ul>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+        </script>
+
+
+</body>
+
 </html>
