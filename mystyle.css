@@ -74,14 +74,6 @@ nav {
     box-shadow: none!important;
   }
 
-  /* .btn-secondary:focus{
-    background-color: rgba(255, 255, 255, 0.7)!important;
-    color: black!important;
-    border: none!important;
-    box-shadow: none!important;
-  } */
-
-
   .network-name {
     text-transform: uppercase;
     font-size: 16px;
@@ -97,7 +89,6 @@ nav {
 
 
 .main-title {
-    /* border: solid black 1px; */
     width: 78%;
     margin: auto; 
     padding-top: 4%;
@@ -112,6 +103,23 @@ nav {
 .col-md-6 img {
     max-width: 100%;
     /* border: solid #E9ECEF 2px;  */
+}
+
+/* Skills Section */
+.col-md-3 img {
+    max-width: 70%;
+    margin-top: 50px;   
+}
+
+.col-md-3 h3{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: grey;
+    font-weight: 400;
+}
+
+.col-md-3{
+    text-align: center;
 }
 
 .mysection{
@@ -140,6 +148,6 @@ footer {
     min-height: 80%; 
 }
 
-ul {
-    padding: 0;
-}
+
+
+
