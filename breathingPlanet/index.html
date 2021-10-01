@@ -1,12 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Breathing Planet</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="style.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
 </head>
+
 <body>
-    Testing!
-</body>
+
+    <nav class="navbar navbar-expand-md navbar-light fixed-top">
+
+        <a href="index.html" class="navbar-brand">Our Breathing Planet</a>
+
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav">
+
+                <li class="navbar-item">
+                    <a href="atmosphere.html" class="nav-link">Atmosphere</a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="coralReefs.html" class="nav-link">Coral Reefs</a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="ocean.html" class="nav-link">Ocean</a>
+                </li>
+
+                <li class="navbar-item">
+                    <a href="iceCores.html" class="nav-link">Ice Cores</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <!--close navbar-->
+
+    <!-- Landing page - main title -->
+    <div class="landing">
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-6">
+                <h3>Data Interactive</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-6">
+                <h1>Our Breathing Planet</h1>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Section: carbon cycle overview -->
+    <div class="content">
+
+        <div class="main-title">
+            <div class="col-12">
+                <h2>Exploring the Carbon Cycle with Data</h2>
+            </div>
+        </div>
+
+        <!-- Keeps everything aligned with 75% -->
+        <div class="mysection">
+
+            <div class="col-md-12">
+                <p>A deeper understanding of the carbon cycle can be gained by analyzing
+                    real-world datasets. This data interactive focuses on four case studies
+                    on time scales ranging from hours to hundreds of thousands of years.
+                    Many of these datasets have provided critical insights into our
+                    understanding of the carbon cycle, which is briefly described below. </p>
+            </div>
+
+            <div class="row" style="padding-top: 5vh; padding-bottom: 5vh;">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <img src="images/carbon-cycle.png" alt="carbon cycle">
+                    <p>Source: <a href="https://essd.copernicus.org/articles/12/3269/2020/"
+                            target="_blank">Friedlingstein et al., 2020</a></p>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <p>In terms of definitions, a carbon <b>reservoir</b> stores carbon and is measured
+                    in gigatons of carbon (GtC, roughly equal to the mass of
+                    200 million elephants). Some of the most important carbon reservoirs includes
+                    the ocean, soils, vegetation, fossil fuel reserves, and the atmosphere.
+                    Carbon <b>fluxes</b> refer to the amount of carbon that gets exchanged
+                    between reservoirs per year.
+                </p>
+
+
+                <p>Prior to 1750, the carbon cycle was largely balanced. On land, photosynthesis
+                    captured 120 GtC of carbon from the atmosphere each year while respiration by
+                    plants, animals, and decomposers released 120 GtC back into the atmosphere
+                    each year. Similarly, the oceans absorbed around 90 GtC of each year and
+                    released 90 GtC back to the atmosphere each year.
+                </p>
+            </div>
+
+            <div class="row" style="padding-top: 5vh; padding-bottom: 5vh;">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <img src="images/surface-pco2.png" alt="surface pCO2">
+                    <p>Source: <a href="https://agupubs.onlinelibrary.wiley.com/doi/10.1002/2014GB004853"
+                            target="_blank">Landschutzer et al., 2014</a></p>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <p>The figure above shows surface ocean pCO<sub>2</sub> values. The red regions
+                    represent locations where deep carbon enriched water upwells to the
+                    surface, releasing carbon back into the atmosphere. The blue regions
+                    represent regions where phytoplankton photosynthesis depletes surface
+                    ocean dissolved inorganic carbon concentrations, resulting in the
+                    flux of carbon from the atmosphere into the ocean.
+                </p>
+            </div>
+
+            <div class="row" style="padding-top: 5vh; padding-bottom: 5vh;">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <img src="images/anthropogenic-fluxes.png" alt="anthropogenic fluxes">
+                    <p>Source: <a href="https://essd.copernicus.org/articles/12/3269/2020/"
+                            target="_blank">Friedlingstein et al., 2020</a></p>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <p>Humans have perturbed the carbon cycle. The flux of carbon from the land
+                    to the atmosphere has increased from fossil fuel combustion and
+                    land use change (example: deforestation). Higher atmospheric CO<sub>2</sub>
+                    concentrations have caused land uptake rates of atmospheric CO<sub>2</sub>
+                    to increase as the
+                    <a href="https://www.nature.com/articles/nclimate3004" , target="_blank">
+                        earth has greened</a>
+                    (higher photosynthesis rates on land due to carbon fertilization). In addition,
+                    higher atmospheric CO<sub>2</sub> concentrations have also caused ocean uptake rates of
+                    atmospheric CO<sub>2</sub> to increase (larger concentration gradient), resulting in ocean
+                    acidification.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-row">
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="https://hansbdejong.github.io" target="_blank">About Me</a>
+                </div>
+
+                <div class="col-md-4">
+                    <a href="https://www.linkedin.com/in/hansbdejong/" target="_blank">LinkedIn</a>
+                </div>
+
+                <div class="col-md-4">
+                    <a href="Hans_DeJong_Resume.pdf" target="_blank">Resume</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
 </html>
