@@ -2,24 +2,38 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breathing Planet - Atmosphere</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="style.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
 
     <!-- Dygraph -->
     <script type="text/javascript" src="dygraph.js"></script>
-    <link href="css/dygraph.css" rel="stylesheet">
+    <link href="dygraph.css" rel="stylesheet">
+
+
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- stylesheet -->
+    <link href="style.css" rel="stylesheet">
+    <title>Breathing Planet - Atmosphere</title>
+
+    
+    <!-- D3 Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
+
+
+
 </head>
 
 <body>
+    <div id="tooltip" class="hidden">
+        <p id="value">Mauna Loa</p>
+    </div>
+
     <nav class="navbar navbar-expand-md navbar-light fixed-top">
 
         <a href="index.html" class="navbar-brand">Our Breathing Planet</a>
@@ -67,8 +81,8 @@
     <div class="content">
 
         <div class="main-title">
-            <div class="col-12">
-                <h1>Carbon Cycles</h1>
+            <div class="col-md-12">
+                <h1>Global CO<sub>2</sub> Concentrations</h1>
             </div>
         </div>
 
@@ -76,12 +90,170 @@
         <div class="mysection">
 
             <div class="col-md-12">
-                <p>Bla bla bla</p>
+                <p>The following interactive displays trends in CO<sub>2</sub> concentrations
+                    (averaged monthly) from 11 locations
+                    around the world (see the station globe below). Many factors influence global
+                    and local
+                    CO<sub>2</sub> concentrations, including the
+                    carbon cycle, the
+                    <a href='https://jakubmarian.com/wp-content/uploads/2018/05/world-tree-cover.jpg'
+                        target='_blank'>distribution of forests</a>
+                    (especially forests near the poles that experience strong seasonality),
+                    and the
+                    <a href='https://www.youtube.com/watch?v=wVRbeGc_6zM&ab_channel=EUMETSAT' target="_blank">
+                        mixing of air masses</a> between and within each hemisphere. Notice how the seasonal
+                    amplitude of
+                    atmospheric CO<sub>2</sub> has
+                    <a href="https://science.sciencemag.org/content/284/5422/1973" target="_blank">
+                        recently increased </a> at the high latitudes in the Northern Hemisphere.
 
+                </p>
+            </div>
+
+            <!-- Interactive CO2 data-->
+            <div class="interactive">
+                <div class="row" style="background-color: white;">
+
+                    <div class="col-md-9">
+                        <div id="graphdiv1"></div>
+                        <p style="color:gray">
+                            Drag slider controls left or right to change x axis scale. Drag area between slider controls
+                            to
+                            pan left or right across plot.
+                        </p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <p>
+                            <b>Display:</b>
+                            <br>
+                            <input id='Select All' type=checkbox onChange="toggle(this)" checked>
+                            <label for="Select All">Select/Deselect All</label>
+                            <br>
+                            <input id='Alert' name="station" type=checkbox onChange="update(this, 0)" checked>
+                            <label for="Alert">Alert</label>
+                            <br>
+                            <input id='Point Barrow' name="station" type=checkbox onChange="update(this, 1)" checked>
+                            <label for="Point Barrow">Point Barrow</label>
+                            <br>
+                            <input id='Station P' name="station" type=checkbox onChange="update(this, 2)" checked>
+                            <label for="Station P">Station P</label>
+                            <br>
+                            <input id='La Jolla Pier' name="station" type=checkbox onChange="update(this, 3)" checked>
+                            <label for="La Jolla Pier">La Jolla Pier</label>
+                            <br>
+                            <input id='Baja' name="station" type=checkbox onChange="update(this, 4)" checked>
+                            <label for="Baja">Baja</label>
+                            <br>
+                            <input id='Mauna Loa' name="station" type=checkbox onChange="update(this, 5)" checked>
+                            <label for="Mauna Loa">Mauna Loa</label>
+                            <br>
+                            <input id='Christmas Island' name="station" type=checkbox onChange="update(this, 6)"
+                                checked>
+                            <label for="Christmas Island">Christmas Island</label>
+                            <br>
+                            <input id='American Samoa' name="station" type=checkbox onChange="update(this, 7)" checked>
+                            <label for="American Samoa">American Samoa</label>
+                            <br>
+                            <input id='Kermadec Islands' name="station" type=checkbox onChange="update(this, 8)"
+                                checked>
+                            <label for="Kermadec Islands">Kermadec Islands</label>
+                            <br>
+                            <input id='New Zealand' name="station" type=checkbox onChange="update(this, 9)" checked>
+                            <label for="New Zealand">New Zealand</label>
+                            <br>
+                            <input id='South Pole' name="station" type=checkbox onChange="update(this, 10)" checked>
+                            <label for="South Pole">South Pole</label>
+
+
+                        </p>
+
+                    </div>
+                </div>
+            </div> <!-- close interactive -->
+
+            <div class="col-md-12">
+                <p>The globe below shows the locations of the CO<sub>2</sub> 
+                    measuring stations. Only stations that are checked on the 
+                    interactive graph are shown.  
+                    
+                </p>
+            </div>
+
+
+            <!-- Interactive Station Globe -->
+
+            <div class="interactive">
+                <div class="row" style="background-color: white;">
+                    <div class="col-md-1"></div>
+                    
+                    <div class="col-md-2">
+
+                        <div id="menu">
+                            <div class="slider item">
+                                <div class="label">Change Tilt</div>
+                                <div><input type="range" orient="vertical" name="rotatePhi" min="-70" max="70"
+                                        value="0">
+                                </div>
+                            </div>
+
+                            <div class="slider item">
+                                <div class="label">Spin Globe</div>
+                                <div><input type="range" name="rotateLambda" min="50" max="250" value="155">
+                                </div>
+                            </div>
+
+                            <div class="slider item">
+                                <div class="label">Zoom</div>
+                                <div> <input type="range" name="scale" min="30" max="430" value="230">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div class="col-md-9">
+                        
+                        
+                        <svg width="500px" height="500px">
+                            <g class="graticule">
+                                <path></path>
+                            </g>
+                            <g class="map"></g>
+                            <g class="circles"></g>
+                        </svg>
+                        <p style="color:gray"> Hover over the marker for the station name.  
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Closing text -->
+            <div class="col-md-12">
+                <p> This data comes from the <a
+                        href="https://scrippsco2.ucsd.edu/data/atmospheric_co2/sampling_stations.html" target="_blank">
+                        Scripps Institute of Oceanography CO<sub>2</sub> Program</a>, which was started
+                    by Charles Keeling.
+                    The first measurements
+                    began in 1957 at La Jolla, California and at the South Pole,
+                    and in 1958 at Mauna Loa Observatory in Hawaii.
+                    The program was expanded during the 1960's and 1970's to include an
+                    array of stations between the Arctic and Antarctica.
+                    To gain further insights, see the animation "<a
+                        href="https://www.youtube.com/watch?v=1ZQG59_z83I&t=6s&ab_channel=CarbonTracker"
+                        target="_blank">Carbon Dioxide Pumphandle 2019</a>" by NOAA.
+
+                </p>
+            </div>
+
+            <div class="col-md-12">
+                <p>
+
+                </p>
             </div>
 
         </div>
-
     </div>
 
     <footer>
@@ -101,6 +273,208 @@
             </div>
         </div>
     </footer>
+
+    <!-- ##############  JAVASCRIPT ################## -->
+
+    <script type="text/javascript">
+        //The interactive graph (Dygraphs)
+        chart = new Dygraph(
+            document.getElementById("graphdiv1"),
+            "data/co2.csv", // path to CSV file
+            {
+                showRangeSelector: true, // zoom bar on the bottom
+                labelsSeparateLines: true, // each label on a separate line
+                drawPoints: true,
+
+                connectSeparatedPoints: false,
+
+                ylabel: "CO<sub>2</sub> (ppm)",
+                colors: ['#00429d', '#3761ab', '#5681b9', '#73a2c6', '#93c4d2', '#b9e5dd',
+                    '#ffa59e', '#f4777f', '#dd4c65', '#be214d', '#93003a'],
+                highlightCircleSize: 4,
+                showLabelsOnHighlight: false
+
+            }
+        );
+
+        // The Interactive Globe (D3)
+        // Data for the globe
+        var geojson;
+        var projection;
+        var geoGenerator = d3.geoPath()
+            .projection(projection);
+
+        var graticule = d3.geoGraticule();
+
+        var state = {
+            type: 'Orthographic',
+            scale: 230,
+            rotateLambda: 155,  // great starting position
+            rotatePhi: 0,
+            translateX: 250,
+            translateY: 250
+        }
+
+        var Tooltip = d3.select("#stationLabel")
+
+        // Marker data:
+        var markers = ["Alert Station",
+            "Point Barrow",
+            "Station P",
+            "La Jolla Pier",
+            "Baja California",
+            "Mauna Loa, Hawaii",
+            "Christmas Island",
+            "American Samoa",
+            "Kermadec Islands",
+            "New Zealand",
+            "South Pole"
+        ];
+
+        var circles = [
+            [-62.3, 82.3],
+            [-156.6, 71.3],
+            [-145.0, 50.0],
+            [-117.3, 32.9],
+            [-110.2, 23.3],
+            [-155.6, 19.5],
+            [-155.6, 2.0],
+            [-170.6, -14.2],
+            [-177.9, -29.2],
+            [-185.1, -41.4],
+            [-180, -90]
+        ];
+
+        var geoCircle = d3.geoCircle().radius(3).precision(1);
+
+        // sets the initial map using data from state.
+        function initMenu() {
+            d3.select('#menu') // sliders
+                .selectAll('.slider.item input') // data input from sliders
+                .on('input', function (d) {
+                    var attr = d3.select(this).attr('name'); // selects the name from each slider
+                    state[attr] = this.value; //sets the value in the slider
+                    update()
+                });
+        }
+
+        // turns each station on and off on the interactive and the map
+        // updates the globe 
+        function update(el, num) {
+            // Update projection
+            projection = d3['geo' + state.type]()
+            geoGenerator.projection(projection);
+
+            projection
+                .scale(state.scale)
+                .rotate([state.rotateLambda, state.rotatePhi])
+                .translate([state.translateX, state.translateY])
+
+            // Update world map
+            var u = d3.select('g.map')
+                .selectAll('path')
+                .data(geojson.features)
+
+
+            u.enter()
+                .append('path')
+                .merge(u)
+                .attr('d', geoGenerator)
+
+            // Update graticule
+            d3.select('.graticule path')
+                .datum(graticule())
+                .attr('d', geoGenerator);
+
+            // Update circles
+            var circleSet = d3.select('.circles')
+                .selectAll('path')
+                .data(circles.map(function (d) {
+                    geoCircle.center(d);
+                    return geoCircle();
+                }));
+
+            circleSet.enter()
+                .append('path')
+                .merge(circleSet)
+                .attr('d', geoGenerator)
+                .attr("stroke-width", 3)
+                .attr("fill-opacity", .4)
+                .on("mouseover", mouseover)
+                .on("mouseleave", mouseleave)
+
+
+
+            // removes station if not checked into globe, adds station into globe if checked
+            if (el.checked) {     // if checkmark is checked
+                chart.setVisibility(num, true);
+                circleSet.filter(function (d, i) { return i === num }).style("opacity", 1);
+            } else {
+                chart.setVisibility(num, false);
+                circleSet.filter(function (d, i) { return i === num }).style("opacity", 0);
+            }
+        }
+
+        // if mouse is over marker, the location is shown (provided the marker is not transparent)
+        let mouseover = function (d, i) {
+            if (d3.select(this).style("opacity") != 0) {
+                d3.select(this)
+                    .attr("fill-opacity", 1);
+
+                //Get this bar's x/y values, then augment for the tooltip
+
+
+                //var xy = projection([circles[i][0], circles[i][1]]);
+
+
+                var xPosition = d3.event.pageX + 10;
+                var yPosition = d3.event.pageY + 10;
+
+                // var xPosition = d3.mouse(this)[0] + 10;
+                // var yPosition = d3.mouse(this)[1] + 500;
+
+                //Update the tooltip position and value
+                d3.select("#tooltip")
+                    .style("left", xPosition + "px")
+                    .style("top", yPosition + "px")
+                    .select("#value")
+                    .text(markers[i]);
+
+                //Show the tooltip
+                d3.select("#tooltip").classed("hidden", false);
+
+            }
+        }
+
+        let mouseleave = function (d) {
+            d3.select(this)
+                .attr("fill-opacity", .4);
+            d3.select("#tooltip").classed("hidden", true);
+        }
+
+
+        // select all toggle
+        function toggle(source) {
+            checkboxes = document.getElementsByName('station');
+            for (var i = 0, n = checkboxes.length; i < n; i++) {
+                checkboxes[i].checked = source.checked; //if toggle is on, each check box is on, and vice versa
+                update(source, i)
+
+                if (source.checked) {    //if main toggle is on        
+                    chart.setVisibility(i, true);
+                } else {
+                    chart.setVisibility(i, false);
+                }
+            }
+        }
+
+        d3.json('https://gist.githubusercontent.com/d3indepth/f28e1c3a99ea6d84986f35ac8646fac7/raw/c58cede8dab4673c91a3db702d50f7447b373d98/ne_110m_land.json', function (err, json) {
+            geojson = json;
+            initMenu();
+            update();
+        })
+
+    </script>
 
 </body>
 

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Dygraph -->
+    <script type="text/javascript" src="dygraph.js"></script>
+    <link href="dygraph.css" rel="stylesheet">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+
+
+
+    <!-- stylesheet -->
+    <link href="style.css" rel="stylesheet">
+
+
+    <title>Atmospheric CO2</title>
+</head>
+
+<body>
+
+    <!-- Interactive -->
+    <div class="row">
+
+        <div class="col-md-9">
+            <div id="graphdiv1"></div>
+            <p style="color:gray">
+                Drag slider controls left or right to change x axis scale. Drag area between slider controls to pan left
+                or right across plot.
+            </p>
+        </div>
+
+        <div class="col-md-3">
+
+            <p>
+                <b>Display:</b>
+                <br>
+                <input id='Select All' type=checkbox onChange="toggle(this)" checked>
+                <label for="Select All">Select/Deselect All</label>
+                <br>
+
+
+
+            </p>
+
+        </div>
+
+    </div> <!-- close interactive -->
+
+
+
+    <script type="text/javascript">
+        //The interactive graph
+        chart = new Dygraph(
+            document.getElementById("graphdiv1"),
+            "data/co2.csv", // path to CSV file
+            {
+                showRangeSelector: true, // zoom bar on the bottom
+                labelsSeparateLines: true, // each label on a separate line
+                drawPoints: true,
+
+                connectSeparatedPoints: false,
+
+                ylabel: "CO<sub>2</sub> (ppm)",
+                colors: ['#00429d', '#3761ab', '#5681b9', '#73a2c6', '#93c4d2', '#b9e5dd',
+                    '#ffa59e', '#f4777f', '#dd4c65', '#be214d', '#93003a'],
+                highlightCircleSize: 4,
+                showLabelsOnHighlight: false
+            }
+        );
+
+            // turns each station on and off on the interactive and the map
+
+
+
+
+    </script>
+</body>
+
+</html>
