@@ -2,20 +2,34 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breathing Planet - Oceans</title>
+    <!-- Dygraph -->
+    <script type="text/javascript" src="dygraph.js"></script>
+    <link href="dygraph.css" rel="stylesheet">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link href="style.css" rel="stylesheet">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- stylesheet -->
+    <link href="style.css" rel="stylesheet">
+    <title>Breathing Planet - Ocean</title>
+
+
+    <!-- D3 Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
+
 
 </head>
 
 <body>
+
+    <div id="tooltip" class="hidden">
+        <p id="value">Mauna Loa</p>
+    </div>
 
     <nav class="navbar navbar-expand-md navbar-light fixed-top">
 
@@ -58,19 +72,154 @@
     </div>
 
 
-    <div class = "content">
+    <div class="content">
 
         <div class="main-title">
-            <div class="col-12">
-                <h1>Carbon Cycle</h1>
+            <div class="col-md=12">
+                <h1>Ocean Carbon Dioxide Time-Series</h1>
             </div>
         </div>
 
         <!-- Keeps everything aligned with 75% -->
         <div class="mysection">
             <div class="col-md-12">
-                <p>Bla bla bla</p>
+                <p>The oceans contain 50 times more inorganic carbon than the atmosphere
+                    because of its large volume and because CO<sub>2</sub> dissolves in sea water.
+                    This data interactive explores how increasing atmospheric CO2 has
+                    been driving CO<sub>2</sub> from the atmosphere into the ocean, resulting in
+                    ocean acidification (<a href="https://www.ipcc.ch/site/assets/uploads/2018/03/srccs_chapter6-1.pdf"
+                        target="_blank">Caldeira et al., 2005</a>).
+                </p>
+
+                <p>The figure below shows time-series of surface water pCO<sub>2</sub> and
+                    pH from three open ocean locations around the world. In addition, atmospheric
+                    CO<sub>2</sub> concentrations from Mauna Loa are also shown. What are the long-term trends
+                    in the pCO<sub>2</sub> data from HOT, BATS, and
+                    ESTOC?
+                    For a given location, what is the relationship between pCO<sub>2</sub> and pH (lower pH is
+                    more acidic)?</p>
             </div>
+
+            <!-- Interactive CO2 data-->
+            <div class="interactive">
+                <div class="row" style="background-color: white;">
+
+                    <div class="col-md-9">
+                        <div id="graphdiv1"></div>
+                        <p style="color:gray">
+                            Drag slider controls left or right to change x axis scale. Drag area between slider controls
+                            to
+                            pan left or right across plot.
+                        </p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <p>
+                            <b>Display:</b>
+                            <br>
+                            <input id='Select All' type=checkbox onChange="toggle(this)" checked>
+                            <label for="Select All">Select/Deselect All</label>
+                            <br>
+                            <input id='Mauna Loa CO2' type=checkbox name="station" onChange="updateGraph(this, 0)"
+                                checked>
+                            <label for="Mauna Loa CO2">Mauna Loa</label>
+                            <br>
+                            <input id='HOT pCO2' type=checkbox name="station" onChange="updateGraph(this, 1)" checked>
+                            <label for="HOT pCO2">HOT pCO<sub>2</sub></label>
+                            <br>
+                            <input id='BATS pCO2' type=checkbox name="station" onChange="updateGraph(this, 2)" checked>
+                            <label for="BATS pCO2">BATS pCO<sub>2</sub></label>
+                            <br>
+                            <input id='ESTOC pCO2' type=checkbox name="station" onChange="updateGraph(this, 3)" checked>
+                            <label for="ESTOC pCO2">ESTOC pCO<sub>2</sub></label>
+                            <br>
+                            <input id='HOT pH' type=checkbox name="station" onChange="updateGraph(this, 4)" checked>
+                            <label for="HOT pH">HOT pH</label>
+                            <br>
+                            <input id='BATS pH' type=checkbox name="station" onChange="updateGraph(this, 5)" checked>
+                            <label for="BATS pH">BATS pH</label>
+                            <br>
+                            <input id='ESTOC pH' type=checkbox name="station" onChange="updateGraph(this, 6)" checked>
+                            <label for="ESTOC pH">ESTOC pH</label>
+                            <br>
+
+
+                        </p>
+
+                    </div>
+                </div>
+            </div> <!-- close interactive -->
+
+            <div class="col-md-12">
+                <p>The globe below shows the locations of the ocean time-series
+                    stations (one site in the Pacific, two in the Atlantic).
+                    Data for this interactive comes from the 
+                    <a href = "https://hahana.soest.hawaii.edu/hot/products/HOT_surface_CO2.txt" target = "_blank">Hawaii Ocean Time-series (HOT) program</a>, 
+                    the <a href = "http://bats.bios.edu/bats-data/" target = "_blank">Bermuda Atlantic time-series Study (BATS)</a>, 
+                    and the <a href = "https://www.nodc.noaa.gov/archive/arc0051/0100064/1.1/data/0-data/" target = "_blank">European Station for Time-series in the Ocean Canary Islands (ESTOC)</a> program.  
+                </p>
+            </div>
+
+
+            <!-- Interactive Station Globe -->
+
+            <div class="interactive">
+                <div class="row" style="background-color: white;">
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-2">
+
+                        <div id="menu">
+                            <div class="slider item">
+                                <div class="label">Change Tilt</div>
+                                <div><input type="range" orient="vertical" name="rotatePhi" min="-70" max="70"
+                                        value="-30">
+                                </div>
+                            </div>
+
+                            <div class="slider item">
+                                <div class="label">Spin Globe</div>
+                                <div><input type="range" name="rotateLambda" min="0" max="170" value="85">
+                                </div>
+                            </div>
+
+                            <div class="slider item">
+                                <div class="label">Zoom</div>
+                                <div> <input type="range" name="scale" min="30" max="430" value="230">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-9">
+                        <svg width="500px" height="500px">
+                            <g class="graticule">
+                                <path></path>
+                            </g>
+                            <g class="map"></g>
+                            <g class="circles"></g>
+                        </svg>
+                        <p style="color:gray"> Hover over the marker for the station name.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--closing interactive station -->
+
+            <div class="row">
+                <div class="col-md-6" style = "padding-left: 0px">
+                    <img img class = "figure" src="images/Kilo-Moana.jpg" alt="HOT cruise">
+                    <p>Research ship heading to the HOT station</p>
+                </div>
+
+                <div class="col-md-6" style = "padding-right: 0px">
+                    <img img class = "figure" src="images/Nansen-bottles.jpg" alt="Nansen bottles">
+                    <p>Surface ocean water samples are collected using Nansen bottles</p>
+                </div>
+            </div>
+
+        <!-- closing mysection -->
         </div>
     </div>
 </body>
@@ -92,6 +241,229 @@
         </div>
     </div>
 </footer>
+
+<script>
+    // Interactive Graph (Dygraph)
+    chart = new Dygraph(
+        document.getElementById("graphdiv1"),
+        "data/ocean-pH-pCO2.csv", // path to CSV file
+        {
+            showRangeSelector: true, // zoom bar on the bottom
+            labelsSeparateLines: true, // each label on a separate line
+            drawPoints: true,
+
+            connectSeparatedPoints: true,
+
+            // colors: ['#00429d', '#3761ab', '#5681b9', '#73a2c6', '#93c4d2', '#b9e5dd',
+            //     '#ffa59e', '#f4777f', '#dd4c65', '#be214d', '#93003a'],
+            highlightCircleSize: 6,
+            strokeWidth: 1.0,
+            showLabelsOnHighlight: false,
+
+            series: {
+                'Mauna Loa CO2': {
+                    axis: 'y1'
+                },
+                'HOT pCO2': {
+                    axis: 'y1'
+                },
+                'BATS pCO2': {
+                    axis: 'y1'
+                },
+                'ESTOC pCO2': {
+                    axis: 'y1'
+                },
+                'HOT pH': {
+                    axis: 'y2'
+                },
+                'BATS pH': {
+                    axis: 'y2'
+                },
+                'ESTOC pH': {
+                    axis: 'y2'
+                },
+            },
+            axes: {
+                y: {
+                },
+                y2: {
+                    // set axis-related properties here
+                    //axisLineColor: 'blue',
+                    //axisLineWidth: 2,
+                    axisLabelWidth: 55
+                }
+            },
+            ylabel: 'pCO2',
+            y2label: 'pH',
+        }
+    );
+
+    function updateGraph(el, num) {
+        if (el.checked) {     // if checkmark is checked
+            chart.setVisibility(num, true);
+        } else {
+            chart.setVisibility(num, false);
+        }
+    }
+
+    // select all toggle
+    function toggle(source) {
+        checkboxes = document.getElementsByName('station');
+        for (var i = 0, n = checkboxes.length; i < n; i++) {
+            checkboxes[i].checked = source.checked; //if toggle is on, each check box is on, and vice versa
+
+            if (source.checked) {    //if main toggle is on        
+                chart.setVisibility(i, true);
+            } else {
+                chart.setVisibility(i, false);
+            }
+        }
+    }
+
+    // The Interactive Globe (D3)
+    // Data for the globe
+    var geojson;
+    var projection;
+    var geoGenerator = d3.geoPath()
+        .projection(projection);
+
+    var graticule = d3.geoGraticule();
+
+    var state = {
+        type: 'Orthographic',
+        scale: 230,
+        rotateLambda: 85,  // great starting position
+        rotatePhi: -30,
+        translateX: 250,
+        translateY: 250
+    }
+
+    // Marker data:
+    var markers = [
+        "HOT",
+        "BATS",
+        "ESTOC"
+    ];
+
+    var circles = [
+        [-158, 22.75],
+        [-64.1667, 31.6667],
+        [-15.5, 29.25],
+   
+    ];
+
+    var geoCircle = d3.geoCircle().radius(3).precision(1);
+
+    // sets the initial map using data from state.
+    function initMenu() {
+        d3.select('#menu') // sliders
+            .selectAll('.slider.item input') // data input from sliders
+            .on('input', function (d) {
+                var attr = d3.select(this).attr('name'); // selects the name from each slider
+                state[attr] = this.value; //sets the value in the slider
+                update()
+            });
+    }
+
+    // turns each station on and off on the interactive and the map
+    // updates the globe 
+    function update(el, num) {
+        // Update projection
+        projection = d3['geo' + state.type]()
+        geoGenerator.projection(projection);
+
+        projection
+            .scale(state.scale)
+            .rotate([state.rotateLambda, state.rotatePhi])
+            .translate([state.translateX, state.translateY])
+
+        // Update world map
+        var u = d3.select('g.map')
+            .selectAll('path')
+            .data(geojson.features)
+
+
+        u.enter()
+            .append('path')
+            .merge(u)
+            .attr('d', geoGenerator)
+
+        // Update graticule
+        d3.select('.graticule path')
+            .datum(graticule())
+            .attr('d', geoGenerator);
+
+        // Update circles
+        var circleSet = d3.select('.circles')
+            .selectAll('path')
+            .data(circles.map(function (d) {
+                geoCircle.center(d);
+                return geoCircle();
+            }));
+
+        circleSet.enter()
+            .append('path')
+            .merge(circleSet)
+            .attr('d', geoGenerator)
+            .attr("stroke-width", 3)
+            .attr("fill-opacity", .4)
+            .on("mouseover", mouseover)
+            .on("mouseleave", mouseleave)
+    }
+
+    // if mouse is over marker, the location is shown (provided the marker is not transparent)
+    let mouseover = function (d, i) {
+        if (d3.select(this).style("opacity") != 0) {
+            d3.select(this)
+                .attr("fill-opacity", 1);
+
+            //Get this bar's x/y values, then augment for the tooltip
+
+            var xPosition = d3.event.pageX + 10;
+            var yPosition = d3.event.pageY + 10;
+
+            // var xPosition = d3.mouse(this)[0] + 10;
+            // var yPosition = d3.mouse(this)[1] + 500;
+
+            //Update the tooltip position and value
+            d3.select("#tooltip")
+                .style("left", xPosition + "px")
+                .style("top", yPosition + "px")
+                .select("#value")
+                .text(markers[i]);
+
+            //Show the tooltip
+            d3.select("#tooltip").classed("hidden", false);
+
+        }
+    }
+
+    let mouseleave = function (d) {
+        d3.select(this)
+            .attr("fill-opacity", .4);
+        d3.select("#tooltip").classed("hidden", true);
+    }
+
+
+    d3.json('https://gist.githubusercontent.com/d3indepth/f28e1c3a99ea6d84986f35ac8646fac7/raw/c58cede8dab4673c91a3db702d50f7447b373d98/ne_110m_land.json', function (err, json) {
+        geojson = json;
+        initMenu();
+        update();
+    })
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
