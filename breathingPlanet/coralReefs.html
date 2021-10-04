@@ -18,6 +18,17 @@
     <link href="style.css" rel="stylesheet">
     <title>Breathing Planet - Ocean</title>
 
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+
+</head>
+
 
 
 <body>
@@ -78,6 +89,25 @@
                     provident corrupti nisi!</p>
             </div>
 
+            <!--Leaflet map Ofu and Palmyra-->
+            <div class="row">
+                <div class="col-md-1"></div>
+
+                <div class="col-md-10">
+                    <div id="mapid"></div>
+                    <p style="color: grey">Hover over the marker for the island name.</p>
+                </div>
+            </div>
+
+
+            <div class="col-md-12">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium excepturi ad quia cum
+                    necessitatibus voluptates? Distinctio, sequi illo? Iste perspiciatis inventore vero iusto dicta
+                    voluptate delectus alias? Maxime officia, natus, id distinctio sint unde facilis, nobis iure
+                    provident corrupti nisi!</p>
+            </div>
+
+
             <!-- Interactive Graph Palmyra-->
             <div class="interactive">
                 <div class="row" style="background-color: white;">
@@ -105,7 +135,6 @@
                 </div>
             </div> <!-- close interactive -->
 
-
             <div class="col-md-12">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium excepturi ad quia cum
                     necessitatibus voluptates? Distinctio, sequi illo? Iste perspiciatis inventore vero iusto dicta
@@ -114,7 +143,6 @@
             </div>
 
             <!--Interactive Graph Ofu -->
-            <!-- Interactive ice cores 800k-->
             <div class="interactive">
                 <div class="row" style="background-color: white;">
 
@@ -127,7 +155,7 @@
                         </p>
                     </div>
 
-                    
+
                     <div class="col-md-2">
                         <p>
                             <b>Display:</b>
@@ -138,17 +166,6 @@
                     </div>
                 </div>
             </div> <!-- close interactive -->
-
-
-
-            <div class="col-md-12">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium excepturi ad quia cum
-                    necessitatibus voluptates? Distinctio, sequi illo? Iste perspiciatis inventore vero iusto dicta
-                    voluptate delectus alias? Maxime officia, natus, id distinctio sint unde facilis, nobis iure
-                    provident corrupti nisi!</p>
-            </div>
-
-            <!--Leaflet Map-->
 
         </div> <!-- close mysection-->
 
@@ -178,6 +195,43 @@
 
 
 <script type="text/javascript">
+
+    // Leaflet map palmyra
+    var mymap = L.map('mapid').setView([-14.175, -169.645], 13);
+
+    // add tilelayer from MapBox
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGFuc2JkZWpvbmciLCJhIjoiY2tqNWZ6NTd0MnJ0ZzJ4bTBsdXN1ZDQ2eiJ9.OIEtSz4VIvJyb0sANsRC9w', {
+        maxZoom: 17,
+        minZoom: 2,
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        id: 'mapbox/satellite-v9',
+        tileSize: 512,
+        zoomOffset: -1
+    }).addTo(mymap);
+
+    //Add each marker as a variable
+    var ofu = L.marker([-14.185, -169.666]).addTo(mymap);
+    var palmyra = L.marker([5.87, -162.103]).addTo(mymap);
+
+    // add pop-ups
+    ofu.bindPopup("Ofu").openPopup();
+    palmyra.bindPopup("Palmyra");
+
+    // array of each marker objects for toggling them on and off
+    var map_layers = [ofu, palmyra];
+
+    for (var i = 0, n = map_layers.length; i < n; i++) {
+
+        map_layers[i].on('mouseover', function (e) {
+            this.openPopup();
+        });
+        map_layers[i].on('mouseout', function (e) {
+            this.closePopup();
+        });
+
+    }
+
 
     //Dygraph for Palymra
 
@@ -235,23 +289,23 @@
                     canvas.fillRect(left, area.y, right - left, area.h);
                 }
 
-                highlight_period(new Date(2012, 8, 20, 6), new Date(2012, 8, 20, 18), "#fdffb6")
-                highlight_period(new Date(2012, 8, 20, 18), new Date(2012, 8, 21, 6), "rgb(230, 230, 230, 1.0)")
+                //highlight_period(new Date(2012, 8, 20, 6), new Date(2012, 8, 20, 18), "#fdffb6")
+                highlight_period(new Date(2012, 8, 20, 18), new Date(2012, 8, 21, 6), "#efefef") // before rgb(230, 230, 230, 1.0)
 
-                highlight_period(new Date(2012, 8, 21, 6), new Date(2012, 8, 21, 18), "#fdffb6")
-                highlight_period(new Date(2012, 8, 21, 18), new Date(2012, 8, 22, 6), "rgb(230, 230, 230, 1.0)")
+                //highlight_period(new Date(2012, 8, 21, 6), new Date(2012, 8, 21, 18), "#fdffb6")
+                highlight_period(new Date(2012, 8, 21, 18), new Date(2012, 8, 22, 6), "#efefef")
 
-                highlight_period(new Date(2012, 8, 22, 6), new Date(2012, 8, 22, 18), "#fdffb6")
-                highlight_period(new Date(2012, 8, 22, 18), new Date(2012, 8, 23, 6), "rgb(230, 230, 230, 1.0)")
+                //highlight_period(new Date(2012, 8, 22, 6), new Date(2012, 8, 22, 18), "#fdffb6")
+                highlight_period(new Date(2012, 8, 22, 18), new Date(2012, 8, 23, 6), "#efefef")
 
-                highlight_period(new Date(2012, 8, 23, 6), new Date(2012, 8, 23, 18), "#fdffb6")
-                highlight_period(new Date(2012, 8, 23, 18), new Date(2012, 8, 24, 6), "rgb(230, 230, 230, 1.0)")
+                //highlight_period(new Date(2012, 8, 23, 6), new Date(2012, 8, 23, 18), "#fdffb6")
+                highlight_period(new Date(2012, 8, 23, 18), new Date(2012, 8, 24, 6), "#efefef")
 
-                highlight_period(new Date(2012, 8, 24, 6), new Date(2012, 8, 24, 18), "#fdffb6")
-                highlight_period(new Date(2012, 8, 24, 18), new Date(2012, 8, 25, 6), "rgb(230, 230, 230, 1.0)")
+                //highlight_period(new Date(2012, 8, 24, 6), new Date(2012, 8, 24, 18), "#fdffb6")
+                highlight_period(new Date(2012, 8, 24, 18), new Date(2012, 8, 25, 6), "#efefef")
 
-                highlight_period(new Date(2012, 8, 25, 6), new Date(2012, 8, 25, 18), "#fdffb6")
-                highlight_period(new Date(2012, 8, 25, 18), new Date(2012, 8, 26, 6), "rgb(230, 230, 230, 1.0)")
+                //highlight_period(new Date(2012, 8, 25, 6), new Date(2012, 8, 25, 18), "#fdffb6")
+                highlight_period(new Date(2012, 8, 25, 18), new Date(2012, 8, 26, 6), "#efefef")
             }
         }
     );
@@ -293,23 +347,23 @@
                     canvas.fillRect(left, area.y, right - left, area.h);
                 }
 
-                highlight_period(new Date(2011, 10, 14, 6), new Date(2011, 10, 14, 18), "#fdffb6")
-                highlight_period(new Date(2011, 10, 14, 18), new Date(2011, 10, 15, 6), "rgb(230, 230, 230, 1.0)")
+                //highlight_period(new Date(2011, 10, 14, 6), new Date(2011, 10, 14, 18), "#fdffb6")
+                highlight_period(new Date(2011, 10, 14, 18), new Date(2011, 10, 15, 6), "#efefef")
 
-                highlight_period(new Date(2011, 10, 15, 6), new Date(2011, 10, 15, 18), "#fdffb6")
-                highlight_period(new Date(2011, 10, 15, 18), new Date(2011, 10, 16, 6), "rgb(230, 230, 230, 1.0)")
+                //highlight_period(new Date(2011, 10, 15, 6), new Date(2011, 10, 15, 18), "#fdffb6")
+                highlight_period(new Date(2011, 10, 15, 18), new Date(2011, 10, 16, 6), "#efefef")
 
-                highlight_period(new Date(2011, 10, 16, 6), new Date(2011, 10, 16, 18), "#fdffb6")
-                highlight_period(new Date(2011, 10, 16, 18), new Date(2011, 10, 17, 6), "rgb(230, 230, 230, 1.0)")
+                //highlight_period(new Date(2011, 10, 16, 6), new Date(2011, 10, 16, 18), "#fdffb6")
+                highlight_period(new Date(2011, 10, 16, 18), new Date(2011, 10, 17, 6), "#efefef")
 
-                highlight_period(new Date(2011, 10, 17, 6), new Date(2011, 10, 17, 18), "#fdffb6")
-                highlight_period(new Date(2011, 10, 17, 18), new Date(2011, 10, 18, 6), "rgb(230, 230, 230, 1.0)")
+                //highlight_period(new Date(2011, 10, 17, 6), new Date(2011, 10, 17, 18), "#fdffb6")
+                highlight_period(new Date(2011, 10, 17, 18), new Date(2011, 10, 18, 6), "#efefef")
 
-                highlight_period(new Date(2011, 10, 18, 6), new Date(2011, 10, 18, 18), "#fdffb6")
-                highlight_period(new Date(2011, 10, 18, 18), new Date(2011, 10, 19, 6), "rgb(230, 230, 230, 1.0)")
+                //highlight_period(new Date(2011, 10, 18, 6), new Date(2011, 10, 18, 18), "#fdffb6")
+                highlight_period(new Date(2011, 10, 18, 18), new Date(2011, 10, 19, 6), "#efefef")
 
-                highlight_period(new Date(2011, 10, 19, 6), new Date(2011, 10, 19, 18), "#fdffb6")
-                highlight_period(new Date(2011, 10, 19, 18), new Date(2011, 10, 20, 6), "rgb(230, 230, 230, 1.0)")
+                //highlight_period(new Date(2011, 10, 19, 6), new Date(2011, 10, 19, 18), "#fdffb6")
+                highlight_period(new Date(2011, 10, 19, 18), new Date(2011, 10, 20, 6), "#efefef")
 
             }
         }

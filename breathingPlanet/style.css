@@ -292,3 +292,7 @@ input[type=range][orient=vertical] {
     line-height: 20px;
     font-weight:bold;
 }
+
+/* Leaflet */
+#mapid { height: 500px; width: 100%;}
+
