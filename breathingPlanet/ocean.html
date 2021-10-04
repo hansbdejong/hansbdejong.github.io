@@ -75,8 +75,8 @@
     <div class="content">
 
         <div class="main-title">
-            <div class="col-md=12">
-                <h1>Ocean Carbon Dioxide Time-Series</h1>
+            <div class="col-md-12">
+                <h1>Ocean CO<sub>2</sub> Time-Series</h1>
             </div>
         </div>
 
@@ -122,7 +122,7 @@
                             <br>
                             <input id='Mauna Loa CO2' type=checkbox name="station" onChange="updateGraph(this, 0)"
                                 checked>
-                            <label for="Mauna Loa CO2">Mauna Loa</label>
+                            <label for="Mauna Loa CO2">Mauna Loa CO<sub>2</sub></label>
                             <br>
                             <input id='HOT pCO2' type=checkbox name="station" onChange="updateGraph(this, 1)" checked>
                             <label for="HOT pCO2">HOT pCO<sub>2</sub></label>
@@ -185,7 +185,7 @@
 
                             <div class="slider item">
                                 <div class="label">Zoom</div>
-                                <div> <input type="range" name="scale" min="30" max="430" value="230">
+                                <div> <input type="range" name="scale" min="30" max="1000" value="230">
                                 </div>
                             </div>
                         </div>
@@ -207,15 +207,25 @@
             </div>
             <!--closing interactive station -->
 
+
+
+            <div class="col-md-12">
+                <h2>Images<h2>
+            </div>
+
             <div class="row">
+                <!-- source: https://www.soest.hawaii.edu/soestwp/tech/watercraft/kilo-moana/ -->
                 <div class="col-md-6" style = "padding-left: 0px">
                     <img img class = "figure" src="images/Kilo-Moana.jpg" alt="HOT cruise">
-                    <p>Research ship heading to the HOT station</p>
+                    <p>Research ship heading to the HOT station.</p>
                 </div>
 
+                <!-- source: https://library.ucsd.edu/dc/object/bb13022749 -->
                 <div class="col-md-6" style = "padding-right: 0px">
                     <img img class = "figure" src="images/Nansen-bottles.jpg" alt="Nansen bottles">
-                    <p>Surface ocean water samples are collected using Nansen bottles</p>
+                    <p>Surface ocean water samples are collected using Nansen bottles
+                        chemical analysis.
+                    </p>
                 </div>
             </div>
 
@@ -352,7 +362,7 @@
    
     ];
 
-    var geoCircle = d3.geoCircle().radius(3).precision(1);
+    var geoCircle = d3.geoCircle().radius(1.5).precision(1);
 
     // sets the initial map using data from state.
     function initMenu() {
@@ -405,7 +415,7 @@
             .append('path')
             .merge(circleSet)
             .attr('d', geoGenerator)
-            .attr("stroke-width", 3)
+            .attr("stroke-width", 1)
             .attr("fill-opacity", .4)
             .on("mouseover", mouseover)
             .on("mouseleave", mouseleave)

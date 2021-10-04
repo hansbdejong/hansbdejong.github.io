@@ -174,6 +174,11 @@ nav {
 
 }
 
+.col-md-12 h2{
+    color: #424242;
+    font-family:"Google Sans","Roboto",sans-serif;
+}
+
 .col-md-10 p{
     color: #424242;
     font-family:"Google Sans","Roboto",sans-serif;
@@ -185,6 +190,10 @@ nav {
     height: 400px;
 }
 
+#graphdiv2{
+    width: 100%;
+    height: 400px;
+}
 
 /* Footer styling */
 footer{
@@ -259,7 +268,7 @@ input[type=range][orient=vertical] {
 #tooltip {
     position: absolute;
     z-index: 999999999;
-    width: 100px;
+    width: 120px;
     height: auto;
     padding: 10px;
     background-color: white;

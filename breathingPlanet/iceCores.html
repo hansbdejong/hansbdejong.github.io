@@ -2,32 +2,46 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breathing Planet - Ice Cores</title>
+    <!-- Dygraph -->
+    <script type="text/javascript" src="dygraph.js"></script>
+    <link href="dygraph.css" rel="stylesheet">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link href="style.css" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- stylesheet -->
+    <link href="style.css" rel="stylesheet">
+    <title>Breathing Planet - Ocean</title>
+
+
+    <!-- D3 Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
+
 
 </head>
 
 <body>
-    
+
+    <div id="tooltip" class="hidden">
+        <p id="value">Mauna Loa</p>
+    </div>
+
     <nav class="navbar navbar-expand-md navbar-light fixed-top">
-        
+
         <a href="index.html" class="navbar-brand">Our Breathing Planet</a>
- 
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
-   
+
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav">
-                
+
                 <li class="navbar-item">
                     <a href="atmosphere.html" class="nav-link">Atmosphere</a>
                 </li>
@@ -47,7 +61,7 @@
             </ul>
         </div>
     </nav>
- 
+
     <!--close navbar-->
 
     <div class="ice">
@@ -56,22 +70,255 @@
         </div>
     </div>
 
-    <div class = "content">
+    <div class="content">
 
         <div class="main-title">
-            <div class="col-12">
-                <h1>Carbon Cycle</h1>
+            <div class="col-md-12">
+                <h1>CO<sub>2</sub> in the Ice Core Record</h1>
             </div>
         </div>
 
         <!-- Keeps everything aligned with 75% -->
         <div class="mysection">
             <div class="col-md-12">
-                <p>Bla bla bla</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis pariatur ratione minima saepe!
+                    Unde dolor facilis fugiat quis sapiente magnam architecto tempora blanditiis reiciendis ducimus
+                    asperiores explicabo amet ea officiis at adipisci voluptatum cupiditate possimus ratione dignissimos
+                    vitae nobis, a natus commodi! Beatae cum autem est quae, voluptas consequatur repellendus? Amet
+                    itaque, nostrum corporis illo consequatur architecto praesentium voluptates delectus! Deserunt
+                    labore earum officiis error magni laborum deleniti, aliquid, odio vero repellat libero accusamus
+                    dolore animi commodi nobis voluptate eligendi inventore tempore aliquam id mollitia omnis! Nisi
+                    veniam modi nihil minus eaque facilis. Voluptatum facilis pariatur, ex alias nulla hic.
+                </p>
             </div>
-        </div>
 
-    </div>
+
+            <!-- Interactive ice core short term-->
+            <div class="interactive">
+                <div class="row" style="background-color: white;">
+
+                    <div class="col-md-9">
+                        <div id="graphdiv1"></div>
+                        <p style="color:gray">
+                            Drag slider controls left or right to change x axis scale. Drag area between slider controls
+                            to
+                            pan left or right across plot.
+                        </p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <p>
+                            <b>Display:</b>
+                            <br>
+                            <input id='Select All' type=checkbox onChange="toggle(this)" checked>
+                            <label for="Select All">Select/Deselect All</label>
+                            <br>
+                            <input id='Mauna Loa CO2' type=checkbox name="station" onChange="updateGraph(this, 0)"
+                                checked>
+                            <label for="Mauna Loa CO2">Mauna Loa Atmosphere</sub></label>
+                            <br>
+                            <input id='South Pole CO2' type=checkbox name="station" onChange="updateGraph(this, 1)"
+                                checked>
+                            <label for="South Pole CO2">South Pole Atmosphere</label>
+                            <br>
+                            <input id='Law Dome' type=checkbox name="station" onChange="updateGraph(this, 2)" checked>
+                            <label for="Law Dome">Law Dome Ice Core</sub></label>
+                            <br>
+                            <input id='Siple' type=checkbox name="station" onChange="updateGraph(this, 3)" checked>
+                            <label for="Siple">Siple Ice Core</sub></label>
+                            <br>
+
+
+                        </p>
+
+                    </div>
+                </div>
+            </div> <!-- close interactive -->
+
+            <div class="col-md-12">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, consequatur! Deleniti perferendis
+                    ullam, fugit provident asperiores minus, dolore natus ipsa et quo voluptas ipsam voluptatum
+                    obcaecati? Sequi fugiat nulla minima et atque assumenda laudantium esse deleniti earum, molestias
+                    nisi repudiandae perspiciatis dolores debitis quo voluptatem temporibus culpa velit incidunt
+                    exercitationem.
+                </p>
+            </div>
+
+
+
+            <!-- Interactive ice cores 800k-->
+            <div class="interactive">
+                <div class="row" style="background-color: white;">
+
+                    <div class="col-md-9">
+                        <div id="graphdiv2"></div>
+                        <p style="color:gray">
+                            Drag slider controls left or right to change x axis scale. Drag area between slider controls
+                            to
+                            pan left or right across plot.
+                        </p>
+                    </div>
+
+                    <div class="col-md-3">
+                        <p>
+                            <!-- Chart 2 -->
+                            <b>Display:</b>
+                            <br>
+                            <input id='Select All' type=checkbox onChange="toggle2(this)" checked>
+                            <label for="Select All">Select/Deselect All</label>
+                            <br>
+                            <input id='Mauna Loa CO2' type=checkbox name="station2" onChange="updateGraph2(this, 0)"
+                                checked>
+                            <label for="Mauna Loa CO2">Mauna Loa Atmosphere</sub></label>
+                            <br>
+                            <input id='South Pole CO2' type=checkbox name="station2" onChange="updateGraph2(this, 1)"
+                                checked>
+                            <label for="South Pole CO2">South Pole Atmosphere</label>
+                            <br>
+                            <input id='Law Dome' type=checkbox name="station2" onChange="updateGraph2(this, 2)" checked>
+                            <label for="Law Dome">Law Dome Ice Core</sub></label>
+                            <br>
+                            <input id='Siple' type=checkbox name="station2" onChange="updateGraph2(this, 3)" checked>
+                            <label for="Siple">Siple Ice Core</sub></label>
+                            <br>
+                            <input id='Taylor' type=checkbox name="station2" onChange="updateGraph2(this, 4)" checked>
+                            <label for="Taylor">Taylor Ice Core</sub></label>
+                            <br>
+                            <input id='Vostok' type=checkbox name="station2" onChange="updateGraph2(this, 5)" checked>
+                            <label for="Vostok">Vostok Ice Core</sub></label>
+                            <br>
+                            <input id='DomeC' type=checkbox name="station2" onChange="updateGraph2(this, 6)" checked>
+                            <label for="DomeC">DomeC Ice Core</sub></label>
+                            <br>
+
+                        </p>
+
+                    </div>
+                </div>
+            </div> <!-- close interactive -->
+
+            <div class="col-md-12">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, consequatur! Deleniti perferendis
+                    ullam, fugit provident asperiores minus, dolore natus ipsa et quo voluptas ipsam voluptatum
+                    obcaecati? Sequi fugiat nulla minima et atque assumenda laudantium esse deleniti earum, molestias
+                    nisi repudiandae perspiciatis dolores debitis quo voluptatem temporibus culpa velit incidunt
+                    exercitationem.
+                </p>
+            </div>
+
+            <!-- Interactive Station Globe -->
+
+            <div class="interactive">
+                <div class="row" style="background-color: white;">
+                    <div class="col-md-1"></div>
+
+                    <div class="col-md-2">
+
+                        <div id="menu">
+                            <div class="slider item">
+                                <div class="label">Change Tilt</div>
+                                <div><input type="range" orient="vertical" name="rotatePhi" min="-90" max="90"
+                                        value="90">
+                                </div>
+                            </div>
+
+                            <div class="slider item">
+                                <div class="label">Spin Globe</div>
+                                <div><input type="range" name="rotateLambda" min="10" max="310" value="160">
+                                </div>
+                            </div>
+
+                            <div class="slider item">
+                                <div class="label">Zoom</div>
+                                <div> <input type="range" name="scale" min="30" max="1000" value="230">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-9">
+                        <svg width="500px" height="500px">
+                            <g class="graticule">
+                                <path></path>
+                            </g>
+                            <g class="map"></g>
+                            <g class="circles"></g>
+                        </svg>
+                        <p style="color:gray"> Hover over the marker for the station name.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--closing interactive station -->
+
+            <div class="col-md-12">
+                <h2>Images<h2>
+            </div>
+            
+            <div class="row">
+                <!-- source: https://climate.nasa.gov/news/2616/core-questions-an-introduction-to-ice-cores/ -->
+                <div class="col-md-6" style="padding-left: 0px">
+                    <img img class="figure" src="images/ice-core-bubbles.jpg" alt="Ice core bubbles">
+                    <p>Gas bubbles trapped in an ice core.</p>
+                </div>
+
+                <!-- source: https://icecores.org/about-ice-cores -->
+                <div class="col-md-6" style="padding-right: 0px">
+                    <img img class="figure" src="images/ice-core-antarctic.jpg" alt="Ice core Antarctic">
+                    <p>An ice core from the West Antarctic Ice Sheet Divide.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- source: https://www.theatlantic.com/photo/2016/11/flying-above-antarctica-with-nasas-operation-icebridge/506447/ -->
+                <div class="col-md-6" style="padding-left: 0px">
+                    <img img class="figure" src="images/ice-sheet.jpg" alt="Ice Sheet">
+                    <p>Section of the West Antarctic Ice Sheet with mountains.</p>
+                </div>
+
+                <!-- source: https://www.nytimes.com/interactive/2020/04/30/climate/antarctica-ice-climate-change.html -->
+                <div class="col-md-6" style="padding-right: 0px">
+                    <img img class="figure" src="images/antarctica-ice-map.jpg" alt="Antartica ice map">
+                    <p>Antarctic Ice Sheet averages two kilometers thick.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- source: https://www.nature.com/articles/d41586-018-07588-3 -->
+                <div class="col-md-6" style="padding-left: 0px">
+                    <img img class="figure" src="images/plane-ice-sheet.jpg" alt="Plane ice sheets">
+                    <p>Preparing to drill a new ice core.</p>
+                </div>
+
+
+                <!-- source: https://www.bas.ac.uk/media-post/quest-to-find-oldest-ice-on-earth/ -->
+                <div class="col-md-6" style="padding-right: 0px">
+                    <img img class="figure" src="images/Concordia-dome-c.jpg" alt="Concordia Dome C">
+                    <p>Concordia Station at Dome C (3233 m above sea level).</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- source: https://icecores.org/about-ice-cores -->
+                <div class="col-md-6" style="padding-left: 0px">
+                    <img img class="figure" src="images/drill-head.jpg" alt="Drill head">
+                    <p>Drill's cutter head and core barrel with an ice core inside.</p>
+                </div>
+
+                <!-- source: https://icecores.org/about-ice-cores -->
+                <div class="col-md-6" style="padding-right: 0px">
+                    <img img class="figure" src="images/drilling-setup.jpg" alt="Drilling setup">
+                    <p>Drill tower tilts from vertical to horizontal.</p>
+                </div>
+            </div>
+
+
+        </div> <!-- close mysection-->
+
+
+
+    </div> <!-- close content-->
 
     <footer>
         <div class="footer-row">
@@ -93,6 +340,233 @@
 
 </body>
 
+<script>
+    // Dygraph for Ice Cores - short term
+    chart1 = new Dygraph(
+        document.getElementById("graphdiv1"),
+        "data/IceCoresCO2.csv", // path to CSV file
+        {
+            showRangeSelector: true, // zoom bar on the bottom
+            labelsSeparateLines: true, // each label on a separate line
+            drawPoints: true,
+            connectSeparatedPoints: true,
+            highlightCircleSize: 4,
+            strokeWidth: 1,
+            showLabelsOnHighlight: false,
+            ylabel: 'CO2 (ppm)',
+        }
+    );
+
+    function updateGraph(el, num) {
+        if (el.checked) {     // if checkmark is checked
+            chart1.setVisibility(num, true);
+        } else {
+            chart1.setVisibility(num, false);
+        }
+    }
+
+    // select all toggle
+    function toggle(source) {
+        checkboxes = document.getElementsByName('station');
+        for (var i = 0, n = checkboxes.length; i < n; i++) {
+            checkboxes[i].checked = source.checked; //if toggle is on, each check box is on, and vice versa
+
+            if (source.checked) {    //if main toggle is on        
+                chart1.setVisibility(i, true);
+            } else {
+                chart1.setVisibility(i, false);
+            }
+        }
+    }
+
+
+    // Dygraph for Ice Cores 800 k years
+    // Dygraph for Ice Cores - short term
+    chart2 = new Dygraph(
+        document.getElementById("graphdiv2"),
+        "data/IceCore800k.csv", // path to CSV file
+        {
+            showRangeSelector: true, // zoom bar on the bottom
+            labelsSeparateLines: true, // each label on a separate line
+            drawPoints: true,
+            connectSeparatedPoints: true,
+            highlightCircleSize: 4,
+            strokeWidth: 1,
+            showLabelsOnHighlight: false,
+            ylabel: 'CO2 (ppm)',
+        }
+    );
+
+    function updateGraph2(el, num) {
+        if (el.checked) {     // if checkmark is checked
+            chart2.setVisibility(num, true);
+        } else {
+            chart2.setVisibility(num, false);
+        }
+    }
+
+    // select all toggle
+    function toggle2(source) {
+        checkboxes = document.getElementsByName('station2');
+        for (var i = 0, n = checkboxes.length; i < n; i++) {
+            checkboxes[i].checked = source.checked; //if toggle is on, each check box is on, and vice versa
+
+            if (source.checked) {    //if main toggle is on        
+                chart2.setVisibility(i, true);
+            } else {
+                chart2.setVisibility(i, false);
+            }
+        }
+    }
+
+
+    // The Interactive Globe (D3)
+    // Data for the globe
+    var geojson;
+    var projection;
+    var geoGenerator = d3.geoPath()
+        .projection(projection);
+
+    var graticule = d3.geoGraticule();
+
+    var state = {
+        type: 'Orthographic',
+        scale: 230,
+        rotateLambda: 160,  // great starting position
+        rotatePhi: 90,
+        translateX: 250,
+        translateY: 250
+    }
+
+    // Marker data:
+    var markers = [
+        "Mauna Loa Atmosphere",
+        "South Pole Atmosphere",
+        "Law Dome Ice Core",
+        "Siple Ice Core",
+        "Taylor Ice Core",
+        "Vostok Ice Core",
+        "Dome C Ice Core"
+    ];
+
+    var circles = [
+        [-155.6, 19.5],
+        [-180, -90],
+        [113.2, -66.71666667],
+        [-83.91666667, -75.91666667],
+        [158.71666667, -77.78333333],
+        [106, -78],
+        [123.34777778, -75.10111111]
+
+    ];
+
+    var geoCircle = d3.geoCircle().radius(1).precision(1);
+
+    // sets the initial map using data from state.
+    function initMenu() {
+        d3.select('#menu') // sliders
+            .selectAll('.slider.item input') // data input from sliders
+            .on('input', function (d) {
+                var attr = d3.select(this).attr('name'); // selects the name from each slider
+                state[attr] = this.value; //sets the value in the slider
+                update()
+            });
+    }
+
+    // turns each station on and off on the interactive and the map
+    // updates the globe 
+    function update(el, num) {
+        // Update projection
+        projection = d3['geo' + state.type]()
+        geoGenerator.projection(projection);
+
+        projection
+            .scale(state.scale)
+            .rotate([state.rotateLambda, state.rotatePhi])
+            .translate([state.translateX, state.translateY])
+
+        // Update world map
+        var u = d3.select('g.map')
+            .selectAll('path')
+            .data(geojson.features)
+
+
+        u.enter()
+            .append('path')
+            .merge(u)
+            .attr('d', geoGenerator)
+
+        // Update graticule
+        d3.select('.graticule path')
+            .datum(graticule())
+            .attr('d', geoGenerator);
+
+        // Update circles
+        var circleSet = d3.select('.circles')
+            .selectAll('path')
+            .data(circles.map(function (d) {
+                geoCircle.center(d);
+                return geoCircle();
+            }));
+
+        circleSet.enter()
+            .append('path')
+            .merge(circleSet)
+            .attr('d', geoGenerator)
+            .attr("stroke-width", 1)
+            .attr("fill-opacity", .4)
+            .on("mouseover", mouseover)
+            .on("mouseleave", mouseleave)
+    }
+
+    // if mouse is over marker, the location is shown (provided the marker is not transparent)
+    let mouseover = function (d, i) {
+        if (d3.select(this).style("opacity") != 0) {
+            d3.select(this)
+                .attr("fill-opacity", 1);
+
+            //Get this bar's x/y values, then augment for the tooltip
+
+            var xPosition = d3.event.pageX + 10;
+            var yPosition = d3.event.pageY + 10;
+
+            // var xPosition = d3.mouse(this)[0] + 10;
+            // var yPosition = d3.mouse(this)[1] + 500;
+
+            //Update the tooltip position and value
+            d3.select("#tooltip")
+                .style("left", xPosition + "px")
+                .style("top", yPosition + "px")
+                .select("#value")
+                .text(markers[i]);
+
+            //Show the tooltip
+            d3.select("#tooltip").classed("hidden", false);
+
+        }
+    }
+
+    let mouseleave = function (d) {
+        d3.select(this)
+            .attr("fill-opacity", .4);
+        d3.select("#tooltip").classed("hidden", true);
+    }
+
+
+    d3.json('https://gist.githubusercontent.com/d3indepth/f28e1c3a99ea6d84986f35ac8646fac7/raw/c58cede8dab4673c91a3db702d50f7447b373d98/ne_110m_land.json', function (err, json) {
+        geojson = json;
+        initMenu();
+        update();
+    })
+
+
+
+
+
+
+
+</script>
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -107,4 +581,3 @@
 
 
 </html>
-

@@ -2,18 +2,23 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Breathing Planet - Coral Reefs</title>
+    <!-- Dygraph -->
+    <script type="text/javascript" src="dygraph.js"></script>
+    <link href="dygraph.css" rel="stylesheet">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link href="style.css" rel="stylesheet">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-</head>
+    <!-- stylesheet -->
+    <link href="style.css" rel="stylesheet">
+    <title>Breathing Planet - Ocean</title>
+
+
 
 <body>
     <nav class="navbar navbar-expand-md navbar-light fixed-top">
@@ -57,21 +62,97 @@
         </div>
     </div>
 
-    <div class = "content">
+    <div class="content">
         <div class="main-title">
-            <div class="col-12">
-                <h1>Carbon Cycle</h1>
+            <div class="col-md-12">
+                <h1>Daily CO<sub>2</sub> Cycles</h1>
             </div>
         </div>
 
         <!-- Keeps everything aligned with 75% -->
         <div class="mysection">
             <div class="col-md-12">
-                <p>Bla bla bla</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium excepturi ad quia cum
+                    necessitatibus voluptates? Distinctio, sequi illo? Iste perspiciatis inventore vero iusto dicta
+                    voluptate delectus alias? Maxime officia, natus, id distinctio sint unde facilis, nobis iure
+                    provident corrupti nisi!</p>
             </div>
-        </div>
 
-    </div>
+            <!-- Interactive Graph Palmyra-->
+            <div class="interactive">
+                <div class="row" style="background-color: white;">
+
+                    <div class="col-md-10">
+                        <div id="graphdiv1"></div>
+                        <p style="color:gray">
+                            Drag slider controls left or right to change x axis scale. Drag area between slider controls
+                            to
+                            pan left or right across plot.
+                        </p>
+                    </div>
+
+                    <div class="col-md-2">
+                        <p>
+                            <b>Display:</b>
+                            <br>
+                            <input id='oxygen' type=checkbox onChange="updateGraph(this, 0)" checked>
+                            <label for="oxygen">Oxygen</label>
+                            <br>
+                            <input id='DIC' type=checkbox onChange="updateGraph(this, 1)" checked>
+                            <label for="DIC">DIC</label>
+                        </p>
+                    </div>
+                </div>
+            </div> <!-- close interactive -->
+
+
+            <div class="col-md-12">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium excepturi ad quia cum
+                    necessitatibus voluptates? Distinctio, sequi illo? Iste perspiciatis inventore vero iusto dicta
+                    voluptate delectus alias? Maxime officia, natus, id distinctio sint unde facilis, nobis iure
+                    provident corrupti nisi!</p>
+            </div>
+
+            <!--Interactive Graph Ofu -->
+            <!-- Interactive ice cores 800k-->
+            <div class="interactive">
+                <div class="row" style="background-color: white;">
+
+                    <div class="col-10">
+                        <div id="graphdiv2"></div>
+                        <p style="color:gray">
+                            Drag slider controls left or right to change x axis scale. Drag area between slider controls
+                            to
+                            pan left or right across plot.
+                        </p>
+                    </div>
+
+                    
+                    <div class="col-md-2">
+                        <p>
+                            <b>Display:</b>
+                            <br>
+                            <input id='oxygen' type=checkbox onChange="updateGraph2(this, 0)" checked>
+                            <label for="oxygen">Oxygen</label>
+                        </p>
+                    </div>
+                </div>
+            </div> <!-- close interactive -->
+
+
+
+            <div class="col-md-12">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium excepturi ad quia cum
+                    necessitatibus voluptates? Distinctio, sequi illo? Iste perspiciatis inventore vero iusto dicta
+                    voluptate delectus alias? Maxime officia, natus, id distinctio sint unde facilis, nobis iure
+                    provident corrupti nisi!</p>
+            </div>
+
+            <!--Leaflet Map-->
+
+        </div> <!-- close mysection-->
+
+    </div> <!-- close content-->
 
     <footer>
         <div class="footer-row">
@@ -94,6 +175,156 @@
 
 
 </body>
+
+
+<script type="text/javascript">
+
+    //Dygraph for Palymra
+
+    chart1 = new Dygraph(
+        document.getElementById("graphdiv1"),
+        "data/palmyra-averaged.csv", // path to CSV file
+        {
+            showRangeSelector: true, // zoom bar on the bottom
+            labelsSeparateLines: true, // each label on a separate line
+            drawPoints: true,
+            connectSeparatedPoints: false,
+            colors: ['#005f73', '#bb3e03'],
+            highlightCircleSize: 6,
+            strokeWidth: 1.0,
+            digitsAfterDecimal: 0,
+            showLabelsOnHighlight: false,
+            series: {
+                'Oxygen': {
+                    axis: 'y1'
+                },
+                'DIC': {
+                    axis: 'y2'
+                },
+            },
+
+
+            axes: {
+                y: {
+
+                    //axisLineColor: 'red',
+                    //axisLineWidth: 2
+                    //axisLabelFontSize: 20
+                    //axisLabelWidth: 60
+                },
+                y2: {
+                    // set axis-related properties here
+                    //axisLineColor: 'blue',
+                    //axisLineWidth: 2,
+                    axisLabelWidth: 55
+                }
+            },
+            ylabel: 'Oxygen',
+            y2label: 'DIC',
+
+            underlayCallback: function (canvas, area, g) {
+
+                function highlight_period(x_start, x_end, myFillStyle) {
+                    var bottom_left = g.toDomCoords(x_start, 0);
+                    var top_right = g.toDomCoords(x_end, 2500);
+                    console.log(bottom_left);
+                    console.log(top_right);
+                    var left = bottom_left[0];
+                    var right = top_right[0];
+                    canvas.fillStyle = myFillStyle;
+                    canvas.fillRect(left, area.y, right - left, area.h);
+                }
+
+                highlight_period(new Date(2012, 8, 20, 6), new Date(2012, 8, 20, 18), "#fdffb6")
+                highlight_period(new Date(2012, 8, 20, 18), new Date(2012, 8, 21, 6), "rgb(230, 230, 230, 1.0)")
+
+                highlight_period(new Date(2012, 8, 21, 6), new Date(2012, 8, 21, 18), "#fdffb6")
+                highlight_period(new Date(2012, 8, 21, 18), new Date(2012, 8, 22, 6), "rgb(230, 230, 230, 1.0)")
+
+                highlight_period(new Date(2012, 8, 22, 6), new Date(2012, 8, 22, 18), "#fdffb6")
+                highlight_period(new Date(2012, 8, 22, 18), new Date(2012, 8, 23, 6), "rgb(230, 230, 230, 1.0)")
+
+                highlight_period(new Date(2012, 8, 23, 6), new Date(2012, 8, 23, 18), "#fdffb6")
+                highlight_period(new Date(2012, 8, 23, 18), new Date(2012, 8, 24, 6), "rgb(230, 230, 230, 1.0)")
+
+                highlight_period(new Date(2012, 8, 24, 6), new Date(2012, 8, 24, 18), "#fdffb6")
+                highlight_period(new Date(2012, 8, 24, 18), new Date(2012, 8, 25, 6), "rgb(230, 230, 230, 1.0)")
+
+                highlight_period(new Date(2012, 8, 25, 6), new Date(2012, 8, 25, 18), "#fdffb6")
+                highlight_period(new Date(2012, 8, 25, 18), new Date(2012, 8, 26, 6), "rgb(230, 230, 230, 1.0)")
+            }
+        }
+    );
+
+    function updateGraph(el, num) {
+        if (el.checked) {     // if checkmark is checked
+            chart1.setVisibility(num, true);
+        } else {
+            chart1.setVisibility(num, false);
+        }
+    }
+
+    // Dygraph for Ofu
+    chart2 = new Dygraph(
+        document.getElementById("graphdiv2"),
+        "data/ofu.csv", // path to CSV file
+        {
+            showRangeSelector: true, // zoom bar on the bottom
+            labelsSeparateLines: true, // each label on a separate line
+            drawPoints: true,
+            connectSeparatedPoints: false,
+            colors: ['#005f73'],
+            highlightCircleSize: 6,
+            strokeWidth: 1.0,
+            digitsAfterDecimal: 0,
+            showLabelsOnHighlight: false,
+            ylabel: "Oxygen",
+
+            underlayCallback: function (canvas, area, g) {
+
+                function highlight_period(x_start, x_end, myFillStyle) {
+                    var bottom_left = g.toDomCoords(x_start, 0);
+                    var top_right = g.toDomCoords(x_end, 2500);
+                    console.log(bottom_left);
+                    console.log(top_right);
+                    var left = bottom_left[0];
+                    var right = top_right[0];
+                    canvas.fillStyle = myFillStyle;
+                    canvas.fillRect(left, area.y, right - left, area.h);
+                }
+
+                highlight_period(new Date(2011, 10, 14, 6), new Date(2011, 10, 14, 18), "#fdffb6")
+                highlight_period(new Date(2011, 10, 14, 18), new Date(2011, 10, 15, 6), "rgb(230, 230, 230, 1.0)")
+
+                highlight_period(new Date(2011, 10, 15, 6), new Date(2011, 10, 15, 18), "#fdffb6")
+                highlight_period(new Date(2011, 10, 15, 18), new Date(2011, 10, 16, 6), "rgb(230, 230, 230, 1.0)")
+
+                highlight_period(new Date(2011, 10, 16, 6), new Date(2011, 10, 16, 18), "#fdffb6")
+                highlight_period(new Date(2011, 10, 16, 18), new Date(2011, 10, 17, 6), "rgb(230, 230, 230, 1.0)")
+
+                highlight_period(new Date(2011, 10, 17, 6), new Date(2011, 10, 17, 18), "#fdffb6")
+                highlight_period(new Date(2011, 10, 17, 18), new Date(2011, 10, 18, 6), "rgb(230, 230, 230, 1.0)")
+
+                highlight_period(new Date(2011, 10, 18, 6), new Date(2011, 10, 18, 18), "#fdffb6")
+                highlight_period(new Date(2011, 10, 18, 18), new Date(2011, 10, 19, 6), "rgb(230, 230, 230, 1.0)")
+
+                highlight_period(new Date(2011, 10, 19, 6), new Date(2011, 10, 19, 18), "#fdffb6")
+                highlight_period(new Date(2011, 10, 19, 18), new Date(2011, 10, 20, 6), "rgb(230, 230, 230, 1.0)")
+
+            }
+        }
+    );
+
+    function updateGraph2(el, num) {
+        if (el.checked) {     // if checkmark is checked
+            chart2.setVisibility(num, true);
+        } else {
+            chart2.setVisibility(num, false);
+        }
+    }
+
+
+</script>
 
 
 <!-- Optional JavaScript -->
