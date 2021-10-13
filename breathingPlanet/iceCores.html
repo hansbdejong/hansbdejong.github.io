@@ -81,14 +81,39 @@
         <!-- Keeps everything aligned with 75% -->
         <div class="mysection">
             <div class="col-md-12">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis pariatur ratione minima saepe!
-                    Unde dolor facilis fugiat quis sapiente magnam architecto tempora blanditiis reiciendis ducimus
-                    asperiores explicabo amet ea officiis at adipisci voluptatum cupiditate possimus ratione dignissimos
-                    vitae nobis, a natus commodi! Beatae cum autem est quae, voluptas consequatur repellendus? Amet
-                    itaque, nostrum corporis illo consequatur architecto praesentium voluptates delectus! Deserunt
-                    labore earum officiis error magni laborum deleniti, aliquid, odio vero repellat libero accusamus
-                    dolore animi commodi nobis voluptate eligendi inventore tempore aliquam id mollitia omnis! Nisi
-                    veniam modi nihil minus eaque facilis. Voluptatum facilis pariatur, ex alias nulla hic.
+                <p>Glaciers and ice sheets form as layers of snow accumulate on top of each other. 
+                    Over time, the buried snow compresses under the weight of the snow above it, 
+                    forming ice. Bubbles of 
+                    trapped air become part of the ice as layers of ice accumulate year after year. 
+                    The air 
+                    bubbles act as time capsules, providing a direct measurement into the 
+                    composition of the atmosphere when the ice formed.  
+                </p>
+                <p>
+                    Ice cores are cylinders of ice drilled from ice sheets. 
+                    Layers in ice cores correspond to years, with the youngest ice 
+                    at the top and the oldest ice at the bottom of the core. 
+                    In Antarctica the ice sheet averages 2160 meters, with 
+                    a maximum thickness of 
+                    <a href = "https://www.nsf.gov/geo/opp/antarct/science/icesheet.jsp" target = "_blank">4776 meters</a>. 
+                    By analyzing the chemical composition of bubbles trapped in 
+                    kilometers-long ice cores, scientists can reconstruct the 
+                    concentration of CO<sub>2</sub> in the atmosphere going back 
+                    hundreds of thousands of years.   
+                </p>
+                <p>
+                    The graph below shows the concentration of CO<sub>2</sub> in the atmosphere 
+                    going back two millennia. In addition to direct CO<sub>2</sub> concentration 
+                    measurements from Mauna Loa and the South Pole, this graph shows 
+                    the concentration of CO<sub>2</sub> in bubbles trapped in the Law Dome 
+                    (<a href = "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2006GL026152" target = "_blank">MacFarling et al., 2006</a>; 
+                    <a href = "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/jgrd.50668" target = "_blank">Rubino et al., 2013</a>; 
+                    119.87 m) and Siple 
+                    (<a href = "https://www.nature.com/articles/315045a0" target = "_blank">Neftel et al., 1985</a>; 
+                    <a href = "https://www.nature.com/articles/324237a0" target = "_blank">Friedli et al., 1986</a>;
+                    200 m) ice cores. 
+                    Notice the close correspondence between the direct atmospheric CO<sub>2</sub> measurements 
+                    and the ice core data.   
                 </p>
             </div>
 
@@ -106,26 +131,26 @@
                         </p>
                     </div>
 
+                    
+
                     <div class="col-md-3">
                         <p>
-                            <b>Display:</b>
-                            <br>
                             <input id='Select All' type=checkbox onChange="toggle(this)" checked>
                             <label for="Select All">Select/Deselect All</label>
                             <br>
                             <input id='Mauna Loa CO2' type=checkbox name="station" onChange="updateGraph(this, 0)"
                                 checked>
-                            <label for="Mauna Loa CO2">Mauna Loa Atmosphere</sub></label>
+                            <label for="Mauna Loa CO2" style="color:#0072BD" id = "label1"><b>Mauna Loa Atmosphere</b></sub></label>
                             <br>
                             <input id='South Pole CO2' type=checkbox name="station" onChange="updateGraph(this, 1)"
                                 checked>
-                            <label for="South Pole CO2">South Pole Atmosphere</label>
+                            <label for="South Pole CO2" style="color:#D95319" id = "label2"><b>South Pole Atmosphere</b></label>
                             <br>
                             <input id='Law Dome' type=checkbox name="station" onChange="updateGraph(this, 2)" checked>
-                            <label for="Law Dome">Law Dome Ice Core</sub></label>
+                            <label for="Law Dome" style="color:#EDB120" id = "label3"><b>Law Dome Ice Core</b></sub></label>
                             <br>
                             <input id='Siple' type=checkbox name="station" onChange="updateGraph(this, 3)" checked>
-                            <label for="Siple">Siple Ice Core</sub></label>
+                            <label for="Siple" style="color:#7E2F8E" id = "label4"><b>Siple Ice Core</b></sub></label>
                             <br>
 
 
@@ -136,11 +161,15 @@
             </div> <!-- close interactive -->
 
             <div class="col-md-12">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, consequatur! Deleniti perferendis
-                    ullam, fugit provident asperiores minus, dolore natus ipsa et quo voluptas ipsam voluptatum
-                    obcaecati? Sequi fugiat nulla minima et atque assumenda laudantium esse deleniti earum, molestias
-                    nisi repudiandae perspiciatis dolores debitis quo voluptatem temporibus culpa velit incidunt
-                    exercitationem.
+                <p>The graph below takes us further in time. It includes the Taylor ice core 
+                    (<a href = "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/1999GL010960" target = "_blank">Indermuhle et al., 2000</a>; 471 m) 
+                    and the much deeper Vostok 
+                    (<a href = "https://www.nature.com/articles/20859" target = "_blank">Petit et al., 1999</a>; 3623 m) 
+                    and Dome C 
+                    (<a href = "https://www.science.org/doi/10.1126/science.291.5501.112" target = "_blank">Monnin et al., 2001</a>; 
+                    <a href = "https://www.science.org/doi/10.1126/science.1120130" target = "_blank">Siegenthaler et al., 2005</a>; 
+                    <a href = "https://www.nature.com/articles/nature06949" target = "_blank">Luthi et al., 2008</a>; 3,270 m) 
+                    ice cores from the interior regions of East Antarctica. 
                 </p>
             </div>
 
@@ -159,36 +188,45 @@
                         </p>
                     </div>
 
+                    
+
                     <div class="col-md-3">
                         <p>
+                            
+                            <!-- colors: ['',
+                            '',
+                            '',
+                            '',
+                            '',
+                            '',
+                            ''
+                            ], -->
                             <!-- Chart 2 -->
-                            <b>Display:</b>
-                            <br>
                             <input id='Select All' type=checkbox onChange="toggle2(this)" checked>
                             <label for="Select All">Select/Deselect All</label>
                             <br>
                             <input id='Mauna Loa CO2' type=checkbox name="station2" onChange="updateGraph2(this, 0)"
                                 checked>
-                            <label for="Mauna Loa CO2">Mauna Loa Atmosphere</sub></label>
+                            <label for="Mauna Loa CO2" style="color:#0072BD" id = "label5"><b>Mauna Loa Atmosphere</b></sub></label>
                             <br>
                             <input id='South Pole CO2' type=checkbox name="station2" onChange="updateGraph2(this, 1)"
                                 checked>
-                            <label for="South Pole CO2">South Pole Atmosphere</label>
+                            <label for="South Pole CO2" style="color:#D95319" id = "label6"><b>South Pole Atmosphere</b></label>
                             <br>
                             <input id='Law Dome' type=checkbox name="station2" onChange="updateGraph2(this, 2)" checked>
-                            <label for="Law Dome">Law Dome Ice Core</sub></label>
+                            <label for="Law Dome" style="color:#EDB120" id = "label7"><b>Law Dome Ice Core</b></sub></label>
                             <br>
                             <input id='Siple' type=checkbox name="station2" onChange="updateGraph2(this, 3)" checked>
-                            <label for="Siple">Siple Ice Core</sub></label>
+                            <label for="Siple" style="color:#7E2F8E" id = "label8"><b>Siple Ice Core</b></sub></label>
                             <br>
                             <input id='Taylor' type=checkbox name="station2" onChange="updateGraph2(this, 4)" checked>
-                            <label for="Taylor">Taylor Ice Core</sub></label>
+                            <label for="Taylor" style="color:#77AC30" id = "label9"><b>Taylor Ice Core</b></sub></label>
                             <br>
                             <input id='Vostok' type=checkbox name="station2" onChange="updateGraph2(this, 5)" checked>
-                            <label for="Vostok">Vostok Ice Core</sub></label>
+                            <label for="Vostok" style="color:#4DBEEE" id = "label10"><b>Vostok Ice Core</b></sub></label>
                             <br>
                             <input id='DomeC' type=checkbox name="station2" onChange="updateGraph2(this, 6)" checked>
-                            <label for="DomeC">DomeC Ice Core</sub></label>
+                            <label for="DomeC" style="color:#A2142F" id = "label11"><b>Dome C Ice Core</b></sub></label>
                             <br>
 
                         </p>
@@ -198,11 +236,8 @@
             </div> <!-- close interactive -->
 
             <div class="col-md-12">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, consequatur! Deleniti perferendis
-                    ullam, fugit provident asperiores minus, dolore natus ipsa et quo voluptas ipsam voluptatum
-                    obcaecati? Sequi fugiat nulla minima et atque assumenda laudantium esse deleniti earum, molestias
-                    nisi repudiandae perspiciatis dolores debitis quo voluptatem temporibus culpa velit incidunt
-                    exercitationem.
+                <p>The map below shows the locations of the Antarctic ice cores as well 
+                    as the stations where atmosphere CO<sub>2</sub> was directly measured since the late 1950s. 
                 </p>
             </div>
 
@@ -341,6 +376,26 @@
 </body>
 
 <script>
+    
+    var label2000 = [
+        "label1",
+        "label2",
+        "label3",
+        "label4",
+    ]
+
+    var label800k = [
+        "label5",
+        "label6",
+        "label7",
+        "label8",
+        "label9",
+        "label10",
+        "label11",
+    ]
+    
+    
+    
     // Dygraph for Ice Cores - short term
     chart1 = new Dygraph(
         document.getElementById("graphdiv1"),
@@ -350,18 +405,25 @@
             labelsSeparateLines: true, // each label on a separate line
             drawPoints: true,
             connectSeparatedPoints: true,
-            highlightCircleSize: 4,
+            highlightCircleSize: 5,
             strokeWidth: 1,
             showLabelsOnHighlight: false,
             ylabel: 'CO2 (ppm)',
+            colors: ['#0072BD',
+            '#D95319',
+            '#EDB120',
+            '#7E2F8E'
+            ],
         }
     );
 
     function updateGraph(el, num) {
         if (el.checked) {     // if checkmark is checked
             chart1.setVisibility(num, true);
+            document.getElementById(label2000[num]).style.opacity = "1";
         } else {
             chart1.setVisibility(num, false);
+            document.getElementById(label2000[num]).style.opacity = "0.2";
         }
     }
 
@@ -370,12 +432,13 @@
         checkboxes = document.getElementsByName('station');
         for (var i = 0, n = checkboxes.length; i < n; i++) {
             checkboxes[i].checked = source.checked; //if toggle is on, each check box is on, and vice versa
+            updateGraph(source, i);
 
-            if (source.checked) {    //if main toggle is on        
-                chart1.setVisibility(i, true);
-            } else {
-                chart1.setVisibility(i, false);
-            }
+            // if (source.checked) {    //if main toggle is on        
+            //     chart1.setVisibility(i, true);
+            // } else {
+            //     chart1.setVisibility(i, false);
+            // }
         }
     }
 
@@ -390,18 +453,28 @@
             labelsSeparateLines: true, // each label on a separate line
             drawPoints: true,
             connectSeparatedPoints: true,
-            highlightCircleSize: 4,
+            highlightCircleSize: 5,
             strokeWidth: 1,
             showLabelsOnHighlight: false,
             ylabel: 'CO2 (ppm)',
+            colors: ['#0072BD',
+            '#D95319',
+            '#EDB120',
+            '#7E2F8E',
+            '#77AC30',
+            '#4DBEEE',
+            '#A2142F'
+            ],
         }
     );
 
     function updateGraph2(el, num) {
         if (el.checked) {     // if checkmark is checked
             chart2.setVisibility(num, true);
+            document.getElementById(label800k[num]).style.opacity = "1";
         } else {
             chart2.setVisibility(num, false);
+            document.getElementById(label800k[num]).style.opacity = "0.2";
         }
     }
 
@@ -410,12 +483,13 @@
         checkboxes = document.getElementsByName('station2');
         for (var i = 0, n = checkboxes.length; i < n; i++) {
             checkboxes[i].checked = source.checked; //if toggle is on, each check box is on, and vice versa
+            updateGraph2(source, i);
 
-            if (source.checked) {    //if main toggle is on        
-                chart2.setVisibility(i, true);
-            } else {
-                chart2.setVisibility(i, false);
-            }
+            // if (source.checked) {    //if main toggle is on        
+            //     chart2.setVisibility(i, true);
+            // } else {
+            //     chart2.setVisibility(i, false);
+            // }
         }
     }
 

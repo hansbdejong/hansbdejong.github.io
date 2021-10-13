@@ -82,29 +82,23 @@
 
         <!-- Keeps everything aligned with 75% -->
         <div class="mysection">
-            <div class="col-md-12">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium excepturi ad quia cum
-                    necessitatibus voluptates? Distinctio, sequi illo? Iste perspiciatis inventore vero iusto dicta
-                    voluptate delectus alias? Maxime officia, natus, id distinctio sint unde facilis, nobis iure
-                    provident corrupti nisi!</p>
-            </div>
 
-            <!--Leaflet map Ofu and Palmyra-->
-            <div class="row">
-                <div class="col-md-1"></div>
-
-                <div class="col-md-10">
-                    <div id="mapid"></div>
-                    <p style="color: grey">Hover over the marker for the island name.</p>
-                </div>
-            </div>
 
 
             <div class="col-md-12">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium excepturi ad quia cum
-                    necessitatibus voluptates? Distinctio, sequi illo? Iste perspiciatis inventore vero iusto dicta
-                    voluptate delectus alias? Maxime officia, natus, id distinctio sint unde facilis, nobis iure
-                    provident corrupti nisi!</p>
+                <p>Photosynthesis and respiration are key processes in the carbon cycle
+                    that can be observed in shallow coral reef environments. This data
+                    interactive presents measurements of dissolved inorganic carbon (DIC)
+                    and oxygen concentrations in the water column directly above healthy 
+                    coral reefs. </p>
+
+                <p>The graph below shows variability over several day-night cycles
+                    (20 -25 September 2012) in DIC and oxygen concentrations above
+                    a shallow coral reef in Palmyra Atoll (<a href = "https://link.springer.com/article/10.1007%2Fs00338-014-1217-3" target = "_blank">Koweek et al., 2015</a>). 
+                    What are the predominant trends in the data? What is the relationship
+                    between DIC and oxygen concentrations? Based on total alkalinity
+                    measurements, calcification and dissolution will also influence DIC
+                    concentrations to a lesser extent. Grey shading shows sundown to sunrise.</p>
             </div>
 
 
@@ -123,23 +117,24 @@
 
                     <div class="col-md-2">
                         <p>
-                            <b>Display:</b>
-                            <br>
+                            <!-- <b>Display:</b>
+                            <br> -->
                             <input id='oxygen' type=checkbox onChange="updateGraph(this, 0)" checked>
-                            <label for="oxygen">Oxygen</label>
+                            <label for="oxygen" style = "color:#005f73" id = "label1"><b>Oxygen</b></label>
                             <br>
                             <input id='DIC' type=checkbox onChange="updateGraph(this, 1)" checked>
-                            <label for="DIC">DIC</label>
+                            <label for="DIC" style = "color:#ff6361" id = "label2"><b>DIC</b></label>
                         </p>
                     </div>
                 </div>
             </div> <!-- close interactive -->
 
             <div class="col-md-12">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium excepturi ad quia cum
-                    necessitatibus voluptates? Distinctio, sequi illo? Iste perspiciatis inventore vero iusto dicta
-                    voluptate delectus alias? Maxime officia, natus, id distinctio sint unde facilis, nobis iure
-                    provident corrupti nisi!</p>
+                <p>The graph below shows the variability in oxygen concentrations
+                    (14-20 November 2011) over a shallow coral reef in Ofu, American
+                    Samoa (<a href = "https://link.springer.com/article/10.1007/s00338-015-1308-9" target = "_blank">Koweek et al., 2015</a>). In addition to photosynthesis and
+                    respiration, rising and falling tides will influence water
+                    column oxygen concentrations at a given location. </p>
             </div>
 
             <!--Interactive Graph Ofu -->
@@ -158,15 +153,31 @@
 
                     <div class="col-md-2">
                         <p>
-                            <b>Display:</b>
-                            <br>
+                            <!-- <b>Display:</b>
+                            <br> -->
                             <input id='oxygen' type=checkbox onChange="updateGraph2(this, 0)" checked>
-                            <label for="oxygen">Oxygen</label>
+                            <label for="oxygen" id = "label3" style = "color:#005f73" ><b>Oxygen</b></label>
                         </p>
                     </div>
                 </div>
             </div> <!-- close interactive -->
 
+
+            <div class="col-md-12">
+                <p>The location of water sampling over the coral reef in American Samoa 
+                    is shown below. Zoom in to see closer details of the reef. Zoom out, then 
+                    zoom back in, to find the reef at Palmyra Atoll. </p>
+            </div>
+
+            <!--Leaflet map Ofu and Palmyra-->
+            <div class="row">
+                <div class="col-md-1"></div>
+
+                <div class="col-md-10">
+                    <div id="mapid"></div>
+                    <p style="color: grey">Hover over the marker for the island name.</p>
+                </div>
+            </div>
         </div> <!-- close mysection-->
 
     </div> <!-- close content-->
@@ -196,8 +207,9 @@
 
 <script type="text/javascript">
 
+    
     // Leaflet map palmyra
-    var mymap = L.map('mapid').setView([-14.175, -169.645], 13);
+    var mymap = L.map('mapid').setView([-14.175, -169.645], 13);// 5.885, -162.08
 
     // add tilelayer from MapBox
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGFuc2JkZWpvbmciLCJhIjoiY2tqNWZ6NTd0MnJ0ZzJ4bTBsdXN1ZDQ2eiJ9.OIEtSz4VIvJyb0sANsRC9w', {
@@ -235,6 +247,12 @@
 
     //Dygraph for Palymra
 
+    var labelNumber = [
+        "label1",
+        "label2",
+        "label3",
+    ]
+
     chart1 = new Dygraph(
         document.getElementById("graphdiv1"),
         "data/palmyra-averaged.csv", // path to CSV file
@@ -243,7 +261,8 @@
             labelsSeparateLines: true, // each label on a separate line
             drawPoints: true,
             connectSeparatedPoints: false,
-            colors: ['#005f73', '#bb3e03'],
+            colors: ['#005f73', '#ff6361'],
+            //colors: ['#005f73', '#bb3e03'],
             highlightCircleSize: 6,
             strokeWidth: 1.0,
             digitsAfterDecimal: 0,
@@ -260,16 +279,16 @@
 
             axes: {
                 y: {
-
-                    //axisLineColor: 'red',
-                    //axisLineWidth: 2
+                   
+                    axisLineColor:  '#005f73',
+                    axisLineWidth: 2
                     //axisLabelFontSize: 20
                     //axisLabelWidth: 60
                 },
                 y2: {
                     // set axis-related properties here
-                    //axisLineColor: 'blue',
-                    //axisLineWidth: 2,
+                    axisLineColor: '#ff6361',
+                    axisLineWidth: 2,
                     axisLabelWidth: 55
                 }
             },
@@ -313,8 +332,10 @@
     function updateGraph(el, num) {
         if (el.checked) {     // if checkmark is checked
             chart1.setVisibility(num, true);
+            document.getElementById(labelNumber[num]).style.opacity = "1";
         } else {
             chart1.setVisibility(num, false);
+            document.getElementById(labelNumber[num]).style.opacity = "0.2";
         }
     }
 
@@ -328,11 +349,22 @@
             drawPoints: true,
             connectSeparatedPoints: false,
             colors: ['#005f73'],
+            axes: {
+                y: {
+                   
+                    axisLineColor:  '#005f73',
+                    axisLineWidth: 2
+                    //axisLabelFontSize: 20
+                    //axisLabelWidth: 60
+                }
+            },
             highlightCircleSize: 6,
             strokeWidth: 1.0,
             digitsAfterDecimal: 0,
             showLabelsOnHighlight: false,
             ylabel: "Oxygen",
+            
+            
 
             underlayCallback: function (canvas, area, g) {
 
@@ -372,8 +404,10 @@
     function updateGraph2(el, num) {
         if (el.checked) {     // if checkmark is checked
             chart2.setVisibility(num, true);
+            document.getElementById("label3").style.opacity = "1";
         } else {
             chart2.setVisibility(num, false);
+            document.getElementById("label3").style.opacity = "0.2";
         }
     }
 

@@ -123,45 +123,45 @@
 
                     <div class="col-md-3">
                         <p>
-                            <b>Display:</b>
-                            <br>
-                            <input id='Select All' type=checkbox onChange="toggle(this)" checked>
+                            <!-- Display:
+                            <br> -->
+                            <input id='Select All' type=checkbox onChange="toggle(this)" checked >
                             <label for="Select All">Select/Deselect All</label>
                             <br>
                             <input id='Alert' name="station" type=checkbox onChange="update(this, 0)" checked>
-                            <label for="Alert">Alert</label>
+                            <label for="Alert" style = "color:#0072BD" id="label1"><b>Alert</b></label>
                             <br>
                             <input id='Point Barrow' name="station" type=checkbox onChange="update(this, 1)" checked>
-                            <label for="Point Barrow">Point Barrow</label>
+                            <label for="Point Barrow" style = "color:#D95319" id="label2"><b>Point Barrow</b></label>
                             <br>
                             <input id='Station P' name="station" type=checkbox onChange="update(this, 2)" checked>
-                            <label for="Station P">Station P</label>
+                            <label for="Station P" style = "color:#EDB120" id="label3"><b>Station P</b></label>
                             <br>
                             <input id='La Jolla Pier' name="station" type=checkbox onChange="update(this, 3)" checked>
-                            <label for="La Jolla Pier">La Jolla Pier</label>
+                            <label for="La Jolla Pier" style = "color: #7E2F8E" id="label4"><b>La Jolla Pier</b></label>
                             <br>
                             <input id='Baja' name="station" type=checkbox onChange="update(this, 4)" checked>
-                            <label for="Baja">Baja</label>
+                            <label for="Baja" style = "color: #8cbcac" id="label5"><b>Baja</b></label>
                             <br>
                             <input id='Mauna Loa' name="station" type=checkbox onChange="update(this, 5)" checked>
-                            <label for="Mauna Loa">Mauna Loa</label>
+                            <label for="Mauna Loa" style="color:#4DBEEE" id="label6"><b>Mauna Loa</b></label>
                             <br>
                             <input id='Christmas Island' name="station" type=checkbox onChange="update(this, 6)"
                                 checked>
-                            <label for="Christmas Island">Christmas Island</label>
+                            <label for="Christmas Island" style="color:#A2142F" id="label7"><b>Christmas Island</b></label>
                             <br>
                             <input id='American Samoa' name="station" type=checkbox onChange="update(this, 7)" checked>
-                            <label for="American Samoa">American Samoa</label>
+                            <label for="American Samoa" style="color:#003f5c" id="label8"><b>American Samoa</b></label>
                             <br>
                             <input id='Kermadec Islands' name="station" type=checkbox onChange="update(this, 8)"
                                 checked>
-                            <label for="Kermadec Islands">Kermadec Islands</label>
+                            <label for="Kermadec Islands" style="color:#FF00FF" id="label9"><b>Kermadec Islands</b></label>
                             <br>
                             <input id='New Zealand' name="station" type=checkbox onChange="update(this, 9)" checked>
-                            <label for="New Zealand">New Zealand</label>
+                            <label for="New Zealand" style = "color:#488f31" id="label10"><b>New Zealand</b></label>
                             <br>
                             <input id='South Pole' name="station" type=checkbox onChange="update(this, 10)" checked>
-                            <label for="South Pole">South Pole</label>
+                            <label for="South Pole" style = "color:#0000ff" id="label11"><b>South Pole</b></label>
 
 
                         </p>
@@ -235,36 +235,37 @@
                     by Charles Keeling.
                     The first measurements
                     began in 1957 at La Jolla, California and at the South Pole,
-                    and in 1958 at Mauna Loa Observatory in Hawaii.  The Mauna Loa CO<sub>2</sub> record
-                    represents one of the most important scientific works of the 20th century and is 
-                    known as the Keeling Curve.  Mauna Loa is an ideal long-term monitoring site 
+                    and in 1958 at Mauna Loa Observatory in Hawaii. The Mauna Loa CO<sub>2</sub> record
+                    represents one of the most important scientific works of the 20th century and is
+                    known as the Keeling Curve. Mauna Loa is an ideal long-term monitoring site
                     due to its remote location far from continents and its lack of vegetation.
-                   
+
                 </p>
             </div>
 
 
             <div class="row">
                 <!-- source: https://www.nytimes.com/2010/12/22/science/earth/22carbon.html -->
-                <div class="col-md-12" style = "padding-left: 0px">
-                    <img img class = "figure" src="images/mauna-loa-observatory.jpg" alt="Mauna Loa Observatory">
-                    The Mauna Loa Observatory sits on a volcanic plain on the slopes of the Mauna Loa volcano in Hawaii, 11,135 feet above the Pacific Ocean.
+                <div class="col-md-12" style="padding-left: 0px">
+                    <img img class="figure" src="images/mauna-loa-observatory.jpg" alt="Mauna Loa Observatory">
+                    The Mauna Loa Observatory sits on a volcanic plain on the slopes of the Mauna Loa volcano in Hawaii,
+                    11,135 feet above the Pacific Ocean.
                 </div>
-            </div> 
+            </div>
 
             <div class="col-md-12">
-                <p> 
+                <p>
                     The Scripts CO<sub>2</sub> program was expanded during the 1960's and 1970's to include an
                     array of stations between the Arctic and Antarctica.
-                    To gain further insights, see the animation "<a
+                    To gain further insights, see the animation <a
                         href="https://www.youtube.com/watch?v=1ZQG59_z83I&t=6s&ab_channel=CarbonTracker"
-                        target="_blank">Carbon Dioxide Pumphandle 2019</a>" by NOAA.
+                        target="_blank">Carbon Dioxide Pumphandle 2019</a> by NOAA.
 
                 </p>
             </div>
-            
-          
-        </div>  <!-- close mysection-->
+
+
+        </div> <!-- close mysection-->
     </div> <!-- close content-->
 </body>
 
@@ -303,11 +304,26 @@
             connectSeparatedPoints: false,
 
             ylabel: "CO<sub>2</sub> (ppm)",
-            colors: ['#00429d', '#3761ab', '#5681b9', '#73a2c6', '#93c4d2', '#b9e5dd',
-                '#ffa59e', '#f4777f', '#dd4c65', '#be214d', '#93003a'],
-            highlightCircleSize: 4,
-            showLabelsOnHighlight: false
+            colors: [
+                //matlab color scheme
+                '#0072BD',
+                '#D95319',
+                '#EDB120',
+                '#7E2F8E',
+                '#8cbcac',
+                '#4DBEEE',
+                '#A2142F',
+                // additional colors from https://learnui.design/tools/data-color-picker.html#palette
+                '#003f5c',
+                '#FF00FF', //#bc5090
+                '#488f31',
+                '#0000FF'
+            ],
 
+            // colors: ['#00429d', '#3761ab', '#5681b9', '#73a2c6', '#93c4d2', '#b9e5dd',
+            //     '#ffa59e', '#f4777f', '#dd4c65', '#be214d', '#93003a'],
+            highlightCircleSize: 5,
+            showLabelsOnHighlight: false
         }
     );
 
@@ -342,6 +358,20 @@
         "New Zealand",
         "South Pole"
     ];
+
+    var labelNumber = [
+        "label1",
+        "label2",
+        "label3",
+        "label4",
+        "label5",
+        "label6",
+        "label7",
+        "label8",
+        "label9",
+        "label10",
+        "label11",
+    ]
 
     var circles = [
         [-62.3, 82.3],
@@ -421,9 +451,11 @@
         if (el.checked) {     // if checkmark is checked
             chart.setVisibility(num, true);
             circleSet.filter(function (d, i) { return i === num }).style("opacity", 1);
+            document.getElementById(labelNumber[num]).style.opacity = "1";
         } else {
             chart.setVisibility(num, false);
             circleSet.filter(function (d, i) { return i === num }).style("opacity", 0);
+            document.getElementById(labelNumber[num]).style.opacity = "0.2";
         }
     }
 
@@ -472,11 +504,11 @@
             checkboxes[i].checked = source.checked; //if toggle is on, each check box is on, and vice versa
             update(source, i)
 
-            if (source.checked) {    //if main toggle is on        
-                chart.setVisibility(i, true);
-            } else {
-                chart.setVisibility(i, false);
-            }
+            // if (source.checked) {    //if main toggle is on        
+            //     chart.setVisibility(i, true);
+            // } else {
+            //     chart.setVisibility(i, false);
+            // }
         }
     }
 

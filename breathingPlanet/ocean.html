@@ -115,32 +115,30 @@
 
                     <div class="col-md-3">
                         <p>
-                            <b>Display:</b>
-                            <br>
                             <input id='Select All' type=checkbox onChange="toggle(this)" checked>
                             <label for="Select All">Select/Deselect All</label>
                             <br>
                             <input id='Mauna Loa CO2' type=checkbox name="station" onChange="updateGraph(this, 0)"
                                 checked>
-                            <label for="Mauna Loa CO2">Mauna Loa CO<sub>2</sub></label>
+                            <label for="Mauna Loa CO2" style = "color:#0072BD" id="label1"><b>Mauna Loa CO<sub>2</sub></b></label>
                             <br>
                             <input id='HOT pCO2' type=checkbox name="station" onChange="updateGraph(this, 1)" checked>
-                            <label for="HOT pCO2">HOT pCO<sub>2</sub></label>
+                            <label for="HOT pCO2" style = "color:#D95319" id="label2"><b>HOT pCO<sub>2</sub></b></label>
                             <br>
                             <input id='BATS pCO2' type=checkbox name="station" onChange="updateGraph(this, 2)" checked>
-                            <label for="BATS pCO2">BATS pCO<sub>2</sub></label>
+                            <label for="BATS pCO2" style="color:#EDB120" id="label3"><b>BATS pCO<sub>2</sub></b></label>
                             <br>
                             <input id='ESTOC pCO2' type=checkbox name="station" onChange="updateGraph(this, 3)" checked>
-                            <label for="ESTOC pCO2">ESTOC pCO<sub>2</sub></label>
+                            <label for="ESTOC pCO2" style="color:#7E2F8E" id="label4"><b>ESTOC pCO<sub>2</sub></b></label>
                             <br>
                             <input id='HOT pH' type=checkbox name="station" onChange="updateGraph(this, 4)" checked>
-                            <label for="HOT pH">HOT pH</label>
+                            <label for="HOT pH" style="color:#77AC30" id="label5"><b>HOT pH</b></label>
                             <br>
                             <input id='BATS pH' type=checkbox name="station" onChange="updateGraph(this, 5)" checked>
-                            <label for="BATS pH">BATS pH</label>
+                            <label for="BATS pH" style="color:#4DBEEE" id="label6"><b>BATS pH</b></label>
                             <br>
                             <input id='ESTOC pH' type=checkbox name="station" onChange="updateGraph(this, 6)" checked>
-                            <label for="ESTOC pH">ESTOC pH</label>
+                            <label for="ESTOC pH" style="color:#A2142F" id="label7"><b>ESTOC pH</b></label>
                             <br>
 
 
@@ -253,6 +251,20 @@
 </footer>
 
 <script>
+    
+    var labelNumber = [
+        "label1",
+        "label2",
+        "label3",
+        "label4",
+        "label5",
+        "label6",
+        "label7",
+    ]
+    
+    
+    
+    
     // Interactive Graph (Dygraph)
     chart = new Dygraph(
         document.getElementById("graphdiv1"),
@@ -263,9 +275,14 @@
             drawPoints: true,
 
             connectSeparatedPoints: true,
-
-            // colors: ['#00429d', '#3761ab', '#5681b9', '#73a2c6', '#93c4d2', '#b9e5dd',
-            //     '#ffa59e', '#f4777f', '#dd4c65', '#be214d', '#93003a'],
+            colors: ['#0072BD',
+            '#D95319',
+            '#EDB120',
+            '#7E2F8E',
+            '#77AC30',
+            '#4DBEEE',
+            '#A2142F'
+            ],
             highlightCircleSize: 6,
             strokeWidth: 1.0,
             showLabelsOnHighlight: false,
@@ -311,8 +328,10 @@
     function updateGraph(el, num) {
         if (el.checked) {     // if checkmark is checked
             chart.setVisibility(num, true);
+            document.getElementById(labelNumber[num]).style.opacity = "1";
         } else {
             chart.setVisibility(num, false);
+            document.getElementById(labelNumber[num]).style.opacity = "0.2";
         }
     }
 
@@ -321,12 +340,12 @@
         checkboxes = document.getElementsByName('station');
         for (var i = 0, n = checkboxes.length; i < n; i++) {
             checkboxes[i].checked = source.checked; //if toggle is on, each check box is on, and vice versa
-
-            if (source.checked) {    //if main toggle is on        
-                chart.setVisibility(i, true);
-            } else {
-                chart.setVisibility(i, false);
-            }
+            updateGraph(source, i);
+            // if (source.checked) {    //if main toggle is on        
+            //     chart.setVisibility(i, true);
+            // } else {
+            //     chart.setVisibility(i, false);
+            // }
         }
     }
 
