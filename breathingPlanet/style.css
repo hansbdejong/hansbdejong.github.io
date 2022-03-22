@@ -105,7 +105,7 @@ nav {
 
 /* Ice cores page cover image */
 .ice{
-    background: url(images/The_Last_Ocean_Plate038.jpg);
+    background: url(images/The_Last_Ocean_Plate.jpg);
     background-position: top;
     height: 400px;
     width: 100%;
@@ -299,7 +299,7 @@ input[type=range][orient=vertical] {
 }
 
 /* Leaflet */
-#mapid { height: 500px; width: 100%;}
+#palmyraMap { height: 500px; width: 100%;}
 
-
+#ofuMap { height: 500px; width: 100%;}
 

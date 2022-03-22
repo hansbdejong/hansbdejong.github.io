@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
+
+input[type="checkbox"] { /* change "blue" browser chrome to yellow */
+    filter: opacity(0.2);
+}
+
+
+/* prevents the navbar from covering content */
+body { 
+    height: 100%;
+    margin: 0;
+    width: 100%;
+}
+
+html{
+    height: 100%; 
+}
+
+
+/* Coral reef page cover image */
+.coral{
+    background: url(images/Cover_Photo4.jpg);
+    background-position: top;
+    height: 400px;
+    width: 100%;
+    background-size: cover;
+    font-family: 'Montserrat';
+    color:white;
+}
+
+.coral h1{
+    font-size: 4em;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);  
+    text-align: center;  
+    padding-top: 160px;
+}
+
+
+/* Content styling  */
+.content{
+    background-color: #efefef;
+}
+
+.row{
+    width: 100%;
+    margin: auto;
+}
+
+/* Contains text, keeps everything aligned with 75% */
+.mysection{
+    width: 75%;
+    margin: auto;
+    padding-top: 2vh;
+    padding-bottom: 8%;
+}
+
+.interactive{
+    /* width: 95%; */
+    margin: auto;
+    margin-top: 8vh;
+    margin-bottom: 8vh;
+
+
+}
+
+.main-title {
+    width: 75%;
+    margin: auto; 
+    padding-top: 15vh;
+    color: #444444;
+    font-family:"Google Sans","Roboto",sans-serif;
+}
+
+
+.mysection .row{
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+
+
+.figure {
+    width:100%;  
+}
+
+.col-md-12{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.col-md-12 p{
+    color: #424242;
+    font-family:"Google Sans","Roboto",sans-serif;
+    font-size: 1.15em; 
+
+}
+
+.col-md-12 h2{
+    color: #424242;
+    font-family:"Google Sans","Roboto",sans-serif;
+}
+
+.col-md-10 p{
+    color: #424242;
+    font-family:"Google Sans","Roboto",sans-serif;
+}
+
+/* Dygraphs styling */
+#graphdiv1{
+    width: 100%;
+    height: 400px;
+}
+
+#graphdiv2{
+    width: 100%;
+    height: 400px;
+}
+
+
+/* Leaflet */
+#palmyraMap { height: 500px; width: 100%;}
+
+#ofuMap { height: 500px; width: 100%;}
+

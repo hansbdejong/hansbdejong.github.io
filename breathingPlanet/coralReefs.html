@@ -16,7 +16,7 @@
 
     <!-- stylesheet -->
     <link href="style.css" rel="stylesheet">
-    <title>Breathing Planet - Ocean</title>
+    <title>Breathing Coral Reefs</title>
 
     <!-- Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -32,44 +32,9 @@
 
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-light fixed-top">
-
-        <a href="index.html" class="navbar-brand">Our Breathing Planet</a>
-
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav">
-
-                <li class="navbar-item">
-                    <a href="atmosphere.html" class="nav-link">Atmosphere</a>
-                </li>
-
-                <li class="navbar-item">
-                    <a href="#" class="nav-link active">Coral Reefs</a>
-                </li>
-
-                <li class="navbar-item">
-                    <a href="ocean.html" class="nav-link">Ocean</a>
-                </li>
-
-                <li class="navbar-item">
-                    <a href="iceCores.html" class="nav-link">Ice Cores</a>
-                </li>
-
-            </ul>
-        </div>
-    </nav>
-
-    <!--close navbar-->
-
     <div class="coral">
         <div class="col-md-12">
-            <h1>Coral Reefs</h1>
+            <h1>Breathing Coral Reefs</h1>
         </div>
     </div>
 
@@ -83,18 +48,18 @@
         <!-- Keeps everything aligned with 75% -->
         <div class="mysection">
 
-
-
             <div class="col-md-12">
                 <p>Photosynthesis and respiration are key processes in the carbon cycle
                     that can be observed in shallow coral reef environments. This data
                     interactive presents measurements of dissolved inorganic carbon (DIC)
-                    and oxygen concentrations in the water column directly above healthy 
+                    and oxygen concentrations in the water column directly above healthy
                     coral reefs. </p>
 
                 <p>The graph below shows variability over several day-night cycles
                     (20 -25 September 2012) in DIC and oxygen concentrations above
-                    a shallow coral reef in Palmyra Atoll (<a href = "https://link.springer.com/article/10.1007%2Fs00338-014-1217-3" target = "_blank">Koweek et al., 2015</a>). 
+                    a shallow coral reef in Palmyra Atoll (<a
+                        href="https://link.springer.com/article/10.1007%2Fs00338-014-1217-3" target="_blank">Koweek et
+                        al., 2015</a>).
                     What are the predominant trends in the data? What is the relationship
                     between DIC and oxygen concentrations? Based on total alkalinity
                     measurements, calcification and dissolution will also influence DIC
@@ -120,22 +85,26 @@
                             <!-- <b>Display:</b>
                             <br> -->
                             <input id='oxygen' type=checkbox onChange="updateGraph(this, 0)" checked>
-                            <label for="oxygen" style = "color:#005f73" id = "label1"><b>Oxygen</b></label>
+                            <label for="oxygen" style="color:#005f73" id="label1"><b>Oxygen</b></label>
                             <br>
                             <input id='DIC' type=checkbox onChange="updateGraph(this, 1)" checked>
-                            <label for="DIC" style = "color:#ff6361" id = "label2"><b>DIC</b></label>
+                            <label for="DIC" style="color:#ff6361" id="label2"><b>DIC</b></label>
                         </p>
                     </div>
                 </div>
             </div> <!-- close interactive -->
 
+
             <div class="col-md-12">
                 <p>The graph below shows the variability in oxygen concentrations
                     (14-20 November 2011) over a shallow coral reef in Ofu, American
-                    Samoa (<a href = "https://link.springer.com/article/10.1007/s00338-015-1308-9" target = "_blank">Koweek et al., 2015</a>). In addition to photosynthesis and
+                    Samoa (<a href="https://link.springer.com/article/10.1007/s00338-015-1308-9" target="_blank">Koweek
+                        et al., 2015</a>). In addition to photosynthesis and
                     respiration, rising and falling tides will influence water
                     column oxygen concentrations at a given location. </p>
             </div>
+
+
 
             <!--Interactive Graph Ofu -->
             <div class="interactive">
@@ -156,93 +125,104 @@
                             <!-- <b>Display:</b>
                             <br> -->
                             <input id='oxygen' type=checkbox onChange="updateGraph2(this, 0)" checked>
-                            <label for="oxygen" id = "label3" style = "color:#005f73" ><b>Oxygen</b></label>
+                            <label for="oxygen" id="label3" style="color:#005f73"><b>Oxygen</b></label>
                         </p>
                     </div>
                 </div>
             </div> <!-- close interactive -->
 
-
+            <!--Leaflet map Palmyra-->
             <div class="col-md-12">
-                <p>The location of water sampling over the coral reef in American Samoa 
-                    is shown below. Zoom in to see closer details of the reef. Zoom out, then 
-                    zoom back in, to find the reef at Palmyra Atoll. </p>
+                <p>The location of water sampling over the coral reef in Palmyra
+                    is shown below. Zoom in to see closer details of the reef. Zoom out 
+                    to see where Palymra is located in relation to the rest of the world. </p>
             </div>
 
-            <!--Leaflet map Ofu and Palmyra-->
+         
             <div class="row">
                 <div class="col-md-1"></div>
 
                 <div class="col-md-10">
-                    <div id="mapid"></div>
-                    <p style="color: grey">Hover over the marker for the island name.</p>
+                    <div id="palmyraMap"></div>
+                    <p style="color: grey">Click on the marker for the island name.</p>
+                </div>
+            </div>
+
+            <!--Leaflet map Ofu -->
+            <div class="col-md-12">
+                <p>Similarly, the location of water sampling over the coral reef in American Samoa
+                    is shown below. </p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1"></div>
+
+                <div class="col-md-10">
+                    <div id="ofuMap"></div>
+                    <p style="color: grey">Click the marker for the island name.</p>
                 </div>
             </div>
         </div> <!-- close mysection-->
 
     </div> <!-- close content-->
 
-    <footer>
-        <div class="footer-row">
-            <div class="row">
-                <div class="col-md-4">
-                    <a href="https://hansbdejong.github.io" target="_blank">About Me</a>
-                </div>
-
-                <div class="col-md-4">
-                    <a href="https://www.linkedin.com/in/hansbdejong/" target="_blank">LinkedIn</a>
-                </div>
-
-                <div class="col-md-4">
-                    <a href="Hans_DeJong_Resume.pdf" target="_blank">Resume</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-
-
 </body>
 
 
 <script type="text/javascript">
 
-    
     // Leaflet map palmyra
-    var mymap = L.map('mapid').setView([-14.175, -169.645], 13);// 5.885, -162.08
-
+    var mymap = L.map('palmyraMap').setView([5.885, -162.08], 13);// 
     // add tilelayer from MapBox
-    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaGFuc2JkZWpvbmciLCJhIjoiY2tqNWZ6NTd0MnJ0ZzJ4bTBsdXN1ZDQ2eiJ9.OIEtSz4VIvJyb0sANsRC9w', {
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 17,
         minZoom: 2,
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
-            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        id: 'mapbox/satellite-v9',
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         tileSize: 512,
         zoomOffset: -1
     }).addTo(mymap);
 
     //Add each marker as a variable
-    var ofu = L.marker([-14.185, -169.666]).addTo(mymap);
     var palmyra = L.marker([5.87, -162.103]).addTo(mymap);
 
     // add pop-ups
+    palmyra.bindPopup("Palmyra").openPopup();
+
+    // palmyra.on('mouseover', function (e) {
+    //     this.openPopup();
+    // });
+    // palmyra.on('mouseout', function (e) {
+    //     this.closePopup();
+    // });
+
+
+    // Leaflet map Ofu
+    var mymap2 = L.map('ofuMap').setView([-14.175, -169.645], 13);// 5.885, -162.08
+
+    // add tilelayer from MapBox
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 17,
+        minZoom: 2,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        tileSize: 512,
+        zoomOffset: -1
+    }).addTo(mymap2);
+
+    //Add each marker as a variable
+    var ofu = L.marker([-14.185, -169.666]).addTo(mymap2);
+
+
+    // add pop-ups
     ofu.bindPopup("Ofu").openPopup();
-    palmyra.bindPopup("Palmyra");
 
-    // array of each marker objects for toggling them on and off
-    var map_layers = [ofu, palmyra];
 
-    for (var i = 0, n = map_layers.length; i < n; i++) {
+    // ofu.on('mouseover', function (e) {
+    //     this.openPopup();
+    // });
+    // ofu.on('mouseout', function (e) {
+    //     this.closePopup();
+    // });
 
-        map_layers[i].on('mouseover', function (e) {
-            this.openPopup();
-        });
-        map_layers[i].on('mouseout', function (e) {
-            this.closePopup();
-        });
-
-    }
 
 
     //Dygraph for Palymra
@@ -279,8 +259,8 @@
 
             axes: {
                 y: {
-                   
-                    axisLineColor:  '#005f73',
+
+                    axisLineColor: '#005f73',
                     axisLineWidth: 2
                     //axisLabelFontSize: 20
                     //axisLabelWidth: 60
@@ -351,8 +331,8 @@
             colors: ['#005f73'],
             axes: {
                 y: {
-                   
-                    axisLineColor:  '#005f73',
+
+                    axisLineColor: '#005f73',
                     axisLineWidth: 2
                     //axisLabelFontSize: 20
                     //axisLabelWidth: 60
@@ -363,8 +343,8 @@
             digitsAfterDecimal: 0,
             showLabelsOnHighlight: false,
             ylabel: "Oxygen",
-            
-            
+
+
 
             underlayCallback: function (canvas, area, g) {
 
